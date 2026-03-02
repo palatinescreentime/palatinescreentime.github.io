@@ -3,44 +3,50 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Screen Time | Window Screen Repair</title>
+  <title>Screen Time | Window Screen Repair in Palatine, IL</title>
+  <meta name="description" content="Professional window screen repair in Palatine, IL. We pick up, re-screen, and return. Get a free quote at palatinescreentime.com." />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body { font-family: 'Segoe UI', system-ui, sans-serif; color: #1a1a2e; background: #fff; line-height: 1.6; }
     a { color: inherit; text-decoration: none; }
     :root {
-      --green: #2d6a4f; --green-lt: #52b788; --green-pale: #d8f3dc;
-      --accent: #f77f00; --dark: #1a1a2e; --muted: #6c757d;
-      --light: #f8f9fa; --shadow: 0 4px 24px rgba(0,0,0,.10);
+      --blue: #0077b6;
+      --blue-lt: #48b4e0;
+      --blue-pale: #e0f4ff;
+      --coral: #e76f51;
+      --dark: #1a1a2e;
+      --muted: #6c757d;
+      --light: #f8f9fa;
+      --shadow: 0 4px 24px rgba(0,0,0,.10);
     }
     .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
     .section { padding: 80px 0; }
     .section-alt { background: var(--light); }
     .text-center { text-align: center; }
-    .tag { display:inline-block; background:var(--green-pale); color:var(--green); font-size:.75rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:4px 12px; border-radius:99px; margin-bottom:12px; }
+    .tag { display:inline-block; background:var(--blue-pale); color:var(--blue); font-size:.75rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; padding:4px 12px; border-radius:99px; margin-bottom:12px; }
     h2 { font-size: clamp(1.6rem,3vw,2.2rem); font-weight:800; line-height:1.2; margin-bottom:12px; }
     .section-sub { color:var(--muted); max-width:540px; margin:0 auto 48px; font-size:1.05rem; }
     .btn { display:inline-block; padding:14px 30px; border-radius:8px; font-weight:700; font-size:1rem; cursor:pointer; transition:transform .15s, box-shadow .15s; border:none; }
     .btn:hover { transform:translateY(-2px); box-shadow:0 6px 20px rgba(0,0,0,.15); }
-    .btn-primary { background:var(--accent); color:#fff; }
-    .btn-secondary { background:#fff; color:var(--green); border:2px solid var(--green); }
-    .btn-green { background:var(--green); color:#fff; }
+    .btn-primary { background:var(--coral); color:#fff; }
+    .btn-secondary { background:#fff; color:var(--blue); border:2px solid var(--blue); }
+    .btn-blue { background:var(--blue); color:#fff; }
     .btn-block { display:block; width:100%; text-align:center; }
 
     nav { position:sticky; top:0; z-index:100; background:#fff; border-bottom:1px solid #e9ecef; padding:0 24px; }
     .nav-inner { max-width:1100px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; height:64px; }
-    .logo { font-size:1.4rem; font-weight:900; color:var(--green); }
-    .logo span { color:var(--accent); }
+    .logo { font-size:1.4rem; font-weight:900; color:var(--blue); }
+    .logo span { color:var(--coral); }
     .nav-links { display:flex; gap:28px; }
-    .nav-links a { font-size:.95rem; font-weight:500; color:var(--dark); }
-    .nav-links a:hover { color:var(--green); }
+    .nav-links a { font-size:.95rem; font-weight:500; color:var(--dark); transition:color .15s; }
+    .nav-links a:hover { color:var(--blue); }
 
-    #hero { background:linear-gradient(135deg,#0d3b2e,#1a5c42,#2d6a4f); color:#fff; padding:100px 24px; }
+    #hero { background:linear-gradient(135deg,#023e6e,#0362a0,#0077b6); color:#fff; padding:100px 24px; }
     .hero-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
     .hero-badge { background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.2); display:inline-flex; align-items:center; gap:8px; padding:6px 16px; border-radius:99px; font-size:.85rem; font-weight:600; margin-bottom:20px; }
     #hero h1 { font-size:clamp(2rem,4.5vw,3.2rem); font-weight:900; line-height:1.1; margin-bottom:20px; }
-    #hero h1 em { color:var(--green-lt); font-style:normal; }
+    #hero h1 em { color:#7dd4f8; font-style:normal; }
     #hero p { font-size:1.1rem; opacity:.85; margin-bottom:32px; max-width:420px; }
     .hero-btns { display:flex; gap:16px; flex-wrap:wrap; }
     .hero-card { background:#fff; border-radius:16px; padding:32px; box-shadow:var(--shadow); }
@@ -48,27 +54,30 @@
     .hero-steps { list-style:none; }
     .hero-steps li { display:flex; align-items:flex-start; gap:14px; padding:10px 0; border-bottom:1px solid #f0f0f0; font-size:.9rem; color:#444; }
     .hero-steps li:last-child { border-bottom:none; }
-    .step-num { min-width:26px; height:26px; background:var(--green); color:#fff; border-radius:50%; font-size:.75rem; font-weight:800; display:flex; align-items:center; justify-content:center; }
+    .step-num { min-width:26px; height:26px; background:var(--blue); color:#fff; border-radius:50%; font-size:.75rem; font-weight:800; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
 
-    #trust { background:var(--green); color:#fff; padding:20px 24px; }
+    #trust { background:var(--blue); color:#fff; padding:20px 24px; }
     .trust-inner { max-width:1100px; margin:0 auto; display:flex; justify-content:center; gap:40px; flex-wrap:wrap; }
     .trust-item { display:flex; align-items:center; gap:8px; font-size:.9rem; font-weight:600; }
 
     .process-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:24px; margin-top:48px; }
-    .process-card { background:#fff; border-radius:10px; padding:28px 24px; box-shadow:var(--shadow); text-align:center; border-top:4px solid var(--green-lt); transition:transform .2s; }
+    .process-card { background:#fff; border-radius:10px; padding:28px 24px; box-shadow:var(--shadow); text-align:center; border-top:4px solid var(--blue-lt); transition:transform .2s; }
     .process-card:hover { transform:translateY(-4px); }
-    .process-num { width:44px; height:44px; background:var(--green-pale); color:var(--green); border-radius:50%; font-weight:900; font-size:1.1rem; display:flex; align-items:center; justify-content:center; margin:0 auto 16px; }
+    .process-num { width:44px; height:44px; background:var(--blue-pale); color:var(--blue); border-radius:50%; font-weight:900; font-size:1.1rem; display:flex; align-items:center; justify-content:center; margin:0 auto 16px; }
     .process-card h4 { font-weight:800; margin-bottom:8px; }
     .process-card p { font-size:.88rem; color:var(--muted); }
-    .process-badge { display:inline-block; background:var(--accent); color:#fff; font-size:.7rem; font-weight:800; padding:2px 8px; border-radius:4px; margin-top:10px; }
+    .process-badge { display:inline-block; background:var(--coral); color:#fff; font-size:.7rem; font-weight:800; padding:2px 8px; border-radius:4px; margin-top:10px; }
 
-    .services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:24px; margin-top:48px; }
-    .service-card { border:2px solid #e9ecef; border-radius:10px; padding:28px 22px; transition:border-color .2s, transform .2s; }
-    .service-card:hover { border-color:var(--green-lt); transform:translateY(-4px); }
-    .service-icon { font-size:2rem; margin-bottom:14px; }
-    .service-card h4 { font-weight:800; margin-bottom:8px; }
-    .service-card p { font-size:.88rem; color:var(--muted); }
-    .price { display:inline-block; margin-top:12px; font-weight:800; color:var(--green); font-size:.9rem; }
+    .service-single { background:#fff; border-radius:16px; box-shadow:var(--shadow); padding:40px; margin-top:48px; display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start; border-top:5px solid var(--blue); }
+    .service-single h3 { font-size:1.5rem; font-weight:800; margin-bottom:12px; }
+    .service-single p { color:var(--muted); margin-bottom:16px; line-height:1.7; }
+    .pricing-table { width:100%; border-collapse:collapse; }
+    .pricing-table th { background:var(--blue-pale); color:var(--blue); font-size:.8rem; font-weight:800; text-transform:uppercase; letter-spacing:.06em; padding:10px 14px; text-align:left; }
+    .pricing-table td { padding:12px 14px; border-bottom:1px solid #e9ecef; font-size:.92rem; }
+    .pricing-table tr:last-child td { border-bottom:none; }
+    .price-val { font-weight:800; color:var(--blue); }
+    .pricing-note { background:var(--blue-pale); border-radius:8px; padding:14px 16px; margin-top:16px; font-size:.85rem; color:var(--dark); line-height:1.6; }
+    .pricing-note strong { color:var(--blue); }
 
     .form-layout { display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start; margin-top:40px; }
     .form-card { background:#fff; border-radius:16px; padding:36px; box-shadow:var(--shadow); }
@@ -77,25 +86,28 @@
     .info-list { list-style:none; }
     .info-list li { display:flex; align-items:flex-start; gap:12px; padding:10px 0; font-size:.92rem; border-bottom:1px solid #f0f0f0; }
     .info-list li:last-child { border-bottom:none; }
-    .payment-note { background:var(--green-pale); border-left:4px solid var(--green); border-radius:6px; padding:14px 16px; margin-top:24px; font-size:.88rem; }
-    .payment-note strong { color:var(--green); }
+    .payment-note { background:var(--blue-pale); border-left:4px solid var(--blue); border-radius:6px; padding:14px 16px; margin-top:24px; font-size:.88rem; }
+    .payment-note strong { color:var(--blue); }
     .form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
     .form-group { margin-bottom:18px; }
     .form-group label { display:block; font-size:.85rem; font-weight:700; margin-bottom:6px; }
-    .req { color:var(--accent); }
+    .req { color:var(--coral); }
     .form-group input, .form-group select, .form-group textarea { width:100%; padding:10px 14px; border:1.5px solid #dee2e6; border-radius:7px; font-size:.95rem; font-family:inherit; transition:border-color .2s; background:#fff; }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline:none; border-color:var(--green); box-shadow:0 0 0 3px rgba(45,106,79,.12); }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline:none; border-color:var(--blue); box-shadow:0 0 0 3px rgba(0,119,182,.12); }
     .form-group textarea { resize:vertical; min-height:80px; }
-    .screen-row { display:grid; grid-template-columns:2fr 1fr 1fr auto; gap:10px; margin-bottom:10px; align-items:end; }
+    .screen-row { display:grid; grid-template-columns:1fr 1fr auto; gap:10px; margin-bottom:10px; align-items:end; }
     .screen-row label { font-size:.8rem; font-weight:700; display:block; margin-bottom:4px; }
     .remove-screen { background:#fee2e2; border:none; color:#dc2626; border-radius:6px; width:36px; height:38px; cursor:pointer; font-size:1rem; }
-    .add-screen { background:none; border:1.5px dashed var(--green-lt); color:var(--green); border-radius:7px; padding:8px 16px; font-size:.88rem; font-weight:700; cursor:pointer; width:100%; margin-bottom:18px; }
-    .add-screen:hover { background:var(--green-pale); }
-    .estimate-box { background:linear-gradient(135deg,var(--green),#1a5c42); color:#fff; border-radius:10px; padding:20px; margin-bottom:20px; display:none; }
+    .add-screen { background:none; border:1.5px dashed var(--blue-lt); color:var(--blue); border-radius:7px; padding:8px 16px; font-size:.88rem; font-weight:700; cursor:pointer; width:100%; margin-bottom:18px; transition:background .15s; }
+    .add-screen:hover { background:var(--blue-pale); }
+    .estimate-box { background:linear-gradient(135deg,var(--blue),#023e6e); color:#fff; border-radius:10px; padding:20px; margin-bottom:20px; display:none; }
     .estimate-box.visible { display:block; }
     .est-label { font-size:.8rem; opacity:.8; font-weight:600; text-transform:uppercase; letter-spacing:.06em; }
     .est-amount { font-size:2rem; font-weight:900; margin:4px 0; }
-    .est-detail { font-size:.82rem; opacity:.8; }
+    .est-breakdown { margin-top:10px; border-top:1px solid rgba(255,255,255,.2); padding-top:10px; }
+    .est-row { display:flex; justify-content:space-between; font-size:.82rem; opacity:.85; padding:2px 0; }
+    .est-row.total-row { font-weight:800; font-size:.9rem; opacity:1; border-top:1px solid rgba(255,255,255,.2); margin-top:4px; padding-top:6px; }
+    .est-detail { font-size:.82rem; opacity:.8; margin-top:8px; }
     .form-divider { border:none; border-top:1px solid #e9ecef; margin:18px 0; }
     .checkbox-group { display:flex; align-items:flex-start; gap:10px; margin-bottom:20px; }
     .checkbox-group input { width:auto; margin-top:3px; }
@@ -103,23 +115,33 @@
     #formSuccess { display:none; text-align:center; padding:40px 20px; }
     .success-icon { font-size:3rem; margin-bottom:16px; }
 
-    .area-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:12px; margin-top:40px; }
-    .area-pill { background:#fff; border:1.5px solid var(--green-pale); border-radius:8px; padding:12px 16px; font-size:.88rem; font-weight:600; text-align:center; }
+    .area-single { background:linear-gradient(135deg,var(--blue),#023e6e); color:#fff; border-radius:16px; padding:48px 40px; text-align:center; margin-top:40px; }
+    .area-single h3 { font-size:1.8rem; font-weight:900; margin-bottom:12px; }
+    .area-single p { opacity:.85; max-width:500px; margin:0 auto 24px; font-size:1rem; }
+    .area-badge { display:inline-block; background:rgba(255,255,255,.2); border:1px solid rgba(255,255,255,.3); padding:10px 24px; border-radius:99px; font-size:1rem; font-weight:800; }
+
+    .about-inner { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
+    .about-img { background:linear-gradient(135deg,var(--blue-pale),var(--blue)); border-radius:16px; min-height:380px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px; padding:40px; text-align:center; }
+    .about-img .big-emoji { font-size:5rem; }
+    .about-img .title-badge { background:rgba(255,255,255,.9); color:var(--blue); font-weight:900; font-size:1rem; padding:10px 20px; border-radius:99px; }
+    .about-text p { color:var(--muted); margin-bottom:16px; line-height:1.7; }
+    .about-stats { display:flex; gap:32px; margin-top:28px; flex-wrap:wrap; }
+    .stat-num { font-size:2rem; font-weight:900; color:var(--blue); display:block; }
+    .stat-label { font-size:.82rem; color:var(--muted); font-weight:600; }
+
+    .mission-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:20px; margin-top:40px; }
+    .mission-card { background:#fff; border-radius:10px; padding:24px 20px; box-shadow:var(--shadow); text-align:center; }
+    .mission-card .m-icon { font-size:2rem; margin-bottom:12px; }
+    .mission-card h4 { font-weight:800; font-size:.95rem; margin-bottom:8px; color:var(--dark); }
+    .mission-card p { font-size:.85rem; color:var(--muted); line-height:1.5; }
 
     .faq-list { margin:40px auto 0; max-width:720px; }
     .faq-item { border-bottom:1px solid #e9ecef; }
     .faq-q { width:100%; background:none; border:none; text-align:left; font-size:1rem; font-weight:700; padding:20px 0; cursor:pointer; display:flex; justify-content:space-between; align-items:center; color:var(--dark); font-family:inherit; }
-    .faq-q .arrow { font-size:.8rem; transition:transform .2s; color:var(--green); }
+    .faq-q .arrow { font-size:.8rem; transition:transform .2s; color:var(--blue); }
     .faq-q.open .arrow { transform:rotate(180deg); }
     .faq-a { font-size:.93rem; color:var(--muted); max-height:0; overflow:hidden; transition:max-height .3s, padding .3s; line-height:1.6; }
     .faq-a.open { max-height:200px; padding-bottom:18px; }
-
-    .about-inner { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; }
-    .about-img { background:linear-gradient(135deg,var(--green-pale),var(--green)); border-radius:16px; height:340px; display:flex; align-items:center; justify-content:center; font-size:5rem; }
-    .about-text p { color:var(--muted); margin-bottom:16px; line-height:1.7; }
-    .about-stats { display:flex; gap:32px; margin-top:28px; }
-    .stat-num { font-size:2rem; font-weight:900; color:var(--green); display:block; }
-    .stat-label { font-size:.82rem; color:var(--muted); font-weight:600; }
 
     footer { background:var(--dark); color:rgba(255,255,255,.75); padding:48px 24px 24px; }
     .footer-grid { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr; gap:40px; padding-bottom:40px; border-bottom:1px solid rgba(255,255,255,.1); }
@@ -127,19 +149,19 @@
     .footer-col h5 { color:#fff; font-weight:800; margin-bottom:14px; }
     .footer-col ul { list-style:none; }
     .footer-col ul li { font-size:.88rem; padding:4px 0; }
-    .footer-col ul li a { color:rgba(255,255,255,.65); }
-    .footer-col ul li a:hover { color:var(--green-lt); }
+    .footer-col ul li a { color:rgba(255,255,255,.65); transition:color .15s; }
+    .footer-col ul li a:hover { color:var(--blue-lt); }
     .footer-bottom { max-width:1100px; margin:24px auto 0; display:flex; justify-content:space-between; font-size:.82rem; flex-wrap:wrap; gap:8px; }
 
     .mobile-cta { display:none; position:fixed; bottom:0; left:0; right:0; background:#fff; border-top:1px solid #e9ecef; padding:12px 20px; z-index:99; gap:12px; }
     @media(max-width:768px) {
       .mobile-cta { display:flex; }
       .mobile-cta .btn { flex:1; padding:12px; font-size:.9rem; }
-      .hero-inner, .form-layout, .about-inner { grid-template-columns:1fr; }
+      .hero-inner, .form-layout, .about-inner, .service-single { grid-template-columns:1fr; }
       .hero-card, .nav-links { display:none; }
-      .form-row { grid-template-columns:1fr; }
+      .form-row, .screen-row { grid-template-columns:1fr; }
       .footer-grid { grid-template-columns:1fr; }
-      .screen-row { grid-template-columns:1fr 1fr; }
+      .about-stats { gap:20px; }
     }
   </style>
 </head>
@@ -150,13 +172,13 @@
     <div class="logo">🪟 Screen<span>Time</span></div>
     <div class="nav-links">
       <a href="#how-it-works">How It Works</a>
-      <a href="#services">Services</a>
+      <a href="#services">Services &amp; Pricing</a>
       <a href="#quote">Get a Quote</a>
       <a href="#about">About</a>
       <a href="#faq">FAQ</a>
     </div>
     <div style="display:flex;gap:12px;align-items:center;">
-      <span style="font-weight:700;color:var(--green);">📞 (555) 000-0000</span>
+      <a href="mailto:hello@palatinescreentime.com" style="font-weight:700;color:var(--blue);font-size:.95rem;">✉️ hello@palatinescreentime.com</a>
       <a href="#quote" class="btn btn-primary" style="padding:10px 22px;font-size:.9rem;">Get a Quote</a>
     </div>
   </div>
@@ -165,22 +187,22 @@
 <section id="hero">
   <div class="hero-inner">
     <div>
-      <div class="hero-badge">✓ Serving [Your City] &amp; Surrounding Areas</div>
+      <div class="hero-badge">✓ Proudly Serving Palatine, IL</div>
       <h1>Window Screens Repaired.<br><em>We Pick Up &amp; Drop Off.</em></h1>
-      <p>Torn, bent, or damaged screens? We handle everything — pickup, re-screening, and return. No hassle.</p>
+      <p>Torn or damaged screens? We handle everything — pickup, professional re-screening, and return delivery. No hassle, no mess.</p>
       <div class="hero-btns">
         <a href="#quote" class="btn btn-primary">Get My Free Estimate</a>
-        <a href="tel:5550000000" class="btn btn-secondary">📞 Call Us</a>
+        <a href="mailto:hello@palatinescreentime.com" class="btn btn-secondary">✉️ Email Us</a>
       </div>
     </div>
     <div class="hero-card">
       <h3>How the Process Works</h3>
       <ul class="hero-steps">
         <li><span class="step-num">1</span><span>Fill out our form with screen dimensions for an instant estimate</span></li>
-        <li><span class="step-num">2</span><span>Review your invoice — then confirm &amp; add card on file</span></li>
+        <li><span class="step-num">2</span><span>Review your invoice — confirm &amp; add card on file</span></li>
         <li><span class="step-num">3</span><span>Remove screens &amp; set outside. We pick up &amp; charge 50%</span></li>
-        <li><span class="step-num">4</span><span>We re-screen with your chosen premium material</span></li>
-        <li><span class="step-num">5</span><span>Screens delivered in 2–3 days. Final 50% charged on return</span></li>
+        <li><span class="step-num">4</span><span>We re-screen with premium fiberglass mesh</span></li>
+        <li><span class="step-num">5</span><span>Screens delivered within 1 week. Final 50% charged on return</span></li>
       </ul>
     </div>
   </div>
@@ -189,10 +211,10 @@
 <div id="trust">
   <div class="trust-inner">
     <div class="trust-item">🛡️ Fully Insured</div>
-    <div class="trust-item">⚡ 2–3 Day Turnaround</div>
-    <div class="trust-item">🐾 Pet-Resistant Options</div>
-    <div class="trust-item">☀️ Solar Screen Available</div>
-    <div class="trust-item">⭐ 5-Star Rated Locally</div>
+    <div class="trust-item">📅 1-Week Turnaround</div>
+    <div class="trust-item">🚗 Pickup &amp; Delivery Included</div>
+    <div class="trust-item">✅ 100% Satisfaction Guarantee</div>
+    <div class="trust-item">📍 Palatine, IL Based</div>
   </div>
 </div>
 
@@ -202,28 +224,46 @@
     <h2>Six Easy Steps to Perfect Screens</h2>
     <p class="section-sub">Designed to be completely hands-off for you. No trips anywhere, no waiting around.</p>
     <div class="process-grid">
-      <div class="process-card"><div class="process-num">1</div><h4>Request a Quote</h4><p>Fill out our form with screen count, dimensions &amp; material. Get an instant estimate.</p></div>
-      <div class="process-card"><div class="process-num">2</div><h4>Review &amp; Confirm</h4><p>We send a detailed invoice. Confirm and securely add a card — no charge yet.</p><span class="process-badge">Card stored securely</span></div>
+      <div class="process-card"><div class="process-num">1</div><h4>Request a Quote</h4><p>Fill out our form with screen count and dimensions. Get an instant estimate on the spot.</p></div>
+      <div class="process-card"><div class="process-num">2</div><h4>Review &amp; Confirm</h4><p>We send a detailed invoice. Confirm and securely add a card on file — no charge yet.</p><span class="process-badge">Card stored securely</span></div>
       <div class="process-card"><div class="process-num">3</div><h4>Remove Screens</h4><p>Pop your screens out and lean them outside your front door on pickup day.</p></div>
-      <div class="process-card"><div class="process-num">4</div><h4>We Pick Up</h4><p>We arrive in your time window, collect the screens, and charge 50%.</p><span class="process-badge">50% due at pickup</span></div>
-      <div class="process-card"><div class="process-num">5</div><h4>We Re-Screen</h4><p>Each frame is re-screened by hand with premium, long-lasting mesh.</p></div>
-      <div class="process-card"><div class="process-num">6</div><h4>We Deliver</h4><p>Screens returned in 2–3 days. Remaining 50% charged automatically on delivery.</p><span class="process-badge">50% due at delivery</span></div>
+      <div class="process-card"><div class="process-num">4</div><h4>We Pick Up</h4><p>We arrive in your scheduled window, collect the screens, and charge 50%.</p><span class="process-badge">50% due at pickup</span></div>
+      <div class="process-card"><div class="process-num">5</div><h4>We Re-Screen</h4><p>Each frame is re-screened by hand with premium fiberglass mesh.</p></div>
+      <div class="process-card"><div class="process-num">6</div><h4>We Deliver</h4><p>Screens returned within 1 week. Remaining 50% charged automatically on delivery.</p><span class="process-badge">50% due at delivery</span></div>
     </div>
   </div>
 </section>
 
-<section id="services" class="section section-alt text-center">
+<section id="services" class="section section-alt">
   <div class="container">
-    <span class="tag">What We Offer</span>
-    <h2>Screen Types &amp; Services</h2>
-    <p class="section-sub">We work with all standard and specialty materials. Not sure what you need? We'll help you choose.</p>
-    <div class="services-grid">
-      <div class="service-card"><div class="service-icon">🪟</div><h4>Standard Fiberglass</h4><p>Classic, flexible mesh that works great in all climates. The best everyday value.</p><span class="price">Starting at $20/screen</span></div>
-      <div class="service-card"><div class="service-icon">🐾</div><h4>Pet-Resistant Screen</h4><p>Heavy-duty vinyl-coated mesh built to withstand claws and impacts.</p><span class="price">Starting at $30/screen</span></div>
-      <div class="service-card"><div class="service-icon">☀️</div><h4>Solar / Sun Screen</h4><p>Blocks up to 90% of UV rays. Reduces heat while maintaining your view.</p><span class="price">Starting at $35/screen</span></div>
-      <div class="service-card"><div class="service-icon">🚪</div><h4>Sliding Door Screens</h4><p>Large patio and sliding door screens re-screened with heavy-duty mesh.</p><span class="price">Starting at $55/screen</span></div>
-      <div class="service-card"><div class="service-icon">🔧</div><h4>Frame Repair</h4><p>Bent or broken aluminum frame? We can straighten or replace it.</p><span class="price">From $10/frame add-on</span></div>
-      <div class="service-card"><div class="service-icon">🏠</div><h4>Whole House Packages</h4><p>Re-screen your entire home at once and save with a bulk discount.</p><span class="price">Ask for a custom quote</span></div>
+    <div class="text-center">
+      <span class="tag">Services &amp; Pricing</span>
+      <h2>Simple, Transparent Pricing</h2>
+      <p class="section-sub">One great service, one great material, no confusing add-ons. Here's exactly what you'll pay.</p>
+    </div>
+    <div class="service-single">
+      <div>
+        <div style="font-size:3rem;margin-bottom:16px;">🪟</div>
+        <h3>Standard Fiberglass Re-Screening</h3>
+        <p>We replace your old worn or torn mesh with fresh, high-quality fiberglass screen — the most popular and durable choice for Illinois homes. Works on all standard window frames.</p>
+        <p>Every screen is re-screened by hand, inspected for quality, and delivered back to your door ready to reinstall.</p>
+        <a href="#quote" class="btn btn-primary" style="margin-top:8px;">Get My Estimate →</a>
+      </div>
+      <div>
+        <table class="pricing-table">
+          <thead><tr><th>Item</th><th>Price</th></tr></thead>
+          <tbody>
+            <tr><td>Re-screening (per screen)</td><td class="price-val">$20.00</td></tr>
+            <tr><td>Frame repair add-on (if needed)</td><td class="price-val">$10.00</td></tr>
+            <tr><td>Pickup &amp; delivery charge (flat fee)</td><td class="price-val">$17.85</td></tr>
+          </tbody>
+        </table>
+        <div class="pricing-note">
+          <strong>💡 Example:</strong> 4 screens with no frame issues =<br>
+          (4 × $20.00) + $17.85 = <strong>$97.85 total</strong><br>
+          $48.93 due at pickup &nbsp;·&nbsp; $48.92 due at delivery
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -233,29 +273,29 @@
     <div class="text-center">
       <span class="tag">Free Estimate</span>
       <h2>Get Your Instant Quote</h2>
-      <p class="section-sub">Enter your screen details for an on-the-spot estimate. No obligation to book.</p>
+      <p class="section-sub">Enter your screen dimensions below and we'll calculate your total — including the pickup fee — on the spot.</p>
     </div>
     <div class="form-layout">
       <div class="form-info">
         <h3>What happens after you submit?</h3>
         <p>Here's exactly what to expect:</p>
         <ul class="info-list">
-          <li><span>📩</span><span>Email confirmation sent within minutes</span></li>
-          <li><span>🧾</span><span>We send a detailed invoice within a few hours</span></li>
-          <li><span>💳</span><span>You confirm and securely add your payment card</span></li>
+          <li><span>📩</span><span>Email confirmation sent to you within minutes</span></li>
+          <li><span>🧾</span><span>We review your order and send a detailed invoice within a few hours</span></li>
+          <li><span>💳</span><span>You confirm the invoice and securely add your payment card</span></li>
           <li><span>📅</span><span>We schedule a pickup window that works for you</span></li>
           <li><span>🪟</span><span>Remove screens &amp; set outside — we handle everything from there</span></li>
         </ul>
         <div class="payment-note">
           <strong>🔒 Secure 50/50 Split Payment</strong><br><br>
-          50% is charged at pickup when we collect your screens. The remaining 50% is charged when we return them. Your full card number is never visible to us.
+          50% is charged at pickup when we collect your screens. The remaining 50% is charged when we return them. Your full card number is never visible to us — all payments processed securely.
         </div>
       </div>
       <div class="form-card">
         <div id="formSuccess">
           <div class="success-icon">✅</div>
           <h3>Quote Request Received!</h3>
-          <p>Thank you! We'll review your order and send a detailed invoice to your email within a few hours.</p>
+          <p>Thank you! We'll review your order and send a detailed invoice to your email within a few hours. Keep an eye on your inbox!</p>
         </div>
         <form id="quoteForm" onsubmit="handleSubmit(event)">
           <h3 style="font-size:1.1rem;font-weight:800;margin-bottom:20px;">Your Contact Info</h3>
@@ -265,19 +305,23 @@
           </div>
           <div class="form-row">
             <div class="form-group"><label>Email <span class="req">*</span></label><input type="email" placeholder="jane@email.com" required /></div>
-            <div class="form-group"><label>Phone <span class="req">*</span></label><input type="tel" placeholder="(555) 000-0000" required /></div>
+            <div class="form-group"><label>Phone (optional)</label><input type="tel" placeholder="(555) 000-0000" /></div>
           </div>
-          <div class="form-group"><label>Pickup Address <span class="req">*</span></label><input type="text" placeholder="123 Main St, City, ST 12345" required /></div>
+          <div class="form-group"><label>Pickup Address <span class="req">*</span></label><input type="text" placeholder="123 Main St, Palatine, IL 60067" required /></div>
+
           <hr class="form-divider" />
           <h3 style="font-size:1.1rem;font-weight:800;margin-bottom:6px;">Your Screens</h3>
-          <p style="font-size:.82rem;color:var(--muted);margin-bottom:16px;">Enter each screen's details. Rough dimensions are fine — we confirm on pickup.</p>
+          <p style="font-size:.82rem;color:var(--muted);margin-bottom:16px;">Enter each screen's dimensions. Rough measurements are fine — we confirm at pickup.</p>
           <div id="screenRows"></div>
           <button type="button" class="add-screen" onclick="addScreenRow()">+ Add Another Screen</button>
+
           <div class="estimate-box" id="estimateBox">
             <div class="est-label">Estimated Total</div>
             <div class="est-amount" id="estAmount">$0.00</div>
-            <div class="est-detail" id="estDetail">—</div>
+            <div class="est-breakdown" id="estBreakdown"></div>
+            <div class="est-detail" id="estDetail"></div>
           </div>
+
           <hr class="form-divider" />
           <h3 style="font-size:1.1rem;font-weight:800;margin-bottom:16px;">Scheduling &amp; Details</h3>
           <div class="form-row">
@@ -290,15 +334,15 @@
             <select><option>All frames look okay</option><option>One or more frames are bent/damaged</option><option>Not sure — please check on pickup</option></select>
           </div>
           <div class="form-group"><label>How did you hear about us?</label>
-            <select><option value="">Select one</option><option>Google Search</option><option>Nextdoor</option><option>Facebook / Instagram</option><option>Word of Mouth</option><option>Door Hanger</option><option>Other</option></select>
+            <select><option value="">Select one</option><option>Google Search</option><option>Nextdoor</option><option>Facebook / Instagram</option><option>Word of Mouth / Referral</option><option>Door Hanger</option><option>Other</option></select>
           </div>
           <div class="form-group"><label>Additional Notes</label><textarea placeholder="Gate codes, parking info, special instructions…"></textarea></div>
           <div class="checkbox-group">
             <input type="checkbox" id="terms" required />
-            <label for="terms">I understand that 50% is charged at pickup and 50% at delivery. My card will be requested after I review and confirm the invoice. <span class="req">*</span></label>
+            <label for="terms">I understand a $17.85 pickup &amp; delivery fee applies, 50% of the total is charged at pickup, and 50% at delivery. My card will be requested after I review and confirm the invoice. <span class="req">*</span></label>
           </div>
-          <button type="submit" class="btn btn-green btn-block" style="font-size:1rem;padding:14px;">Submit Quote Request →</button>
-          <p style="text-align:center;font-size:.78rem;color:var(--muted);margin-top:12px;">No payment required now. Invoice sent first.</p>
+          <button type="submit" class="btn btn-blue btn-block" style="font-size:1rem;padding:14px;">Submit Quote Request →</button>
+          <p style="text-align:center;font-size:.78rem;color:var(--muted);margin-top:12px;">No payment required now. Invoice sent first for your review.</p>
         </form>
       </div>
     </div>
@@ -309,12 +353,11 @@
   <div class="container">
     <span class="tag">Where We Serve</span>
     <h2>Our Service Area</h2>
-    <p class="section-sub">We currently serve these cities and surrounding neighborhoods. Not sure if we reach you? Just call!</p>
-    <div class="area-grid">
-      <div class="area-pill">📍 [City 1]</div><div class="area-pill">📍 [City 2]</div>
-      <div class="area-pill">📍 [City 3]</div><div class="area-pill">📍 [City 4]</div>
-      <div class="area-pill">📍 [City 5]</div><div class="area-pill">📍 [City 6]</div>
-      <div class="area-pill">📍 [City 7]</div><div class="area-pill">📍 [City 8]</div>
+    <p class="section-sub">We are currently serving Palatine, IL exclusively. Have a question? Email us anytime.</p>
+    <div class="area-single">
+      <h3>📍 Palatine, Illinois</h3>
+      <p>We proudly serve all Palatine neighborhoods and zip codes. Not sure if your address qualifies? Just send us a quick email and we'll confirm right away.</p>
+      <a href="mailto:hello@palatinescreentime.com" class="area-badge">✉️ hello@palatinescreentime.com</a>
     </div>
   </div>
 </section>
@@ -322,18 +365,35 @@
 <section id="about" class="section">
   <div class="container">
     <div class="about-inner">
-      <div class="about-img">🪟</div>
+      <div class="about-img">
+        <div class="big-emoji">🪟</div>
+        <div class="title-badge">👋 Meet the Chief Repair Officer</div>
+      </div>
       <div class="about-text">
         <span class="tag">About Screen Time</span>
-        <h2>Local, Reliable, and Proud of Every Screen We Fix</h2>
-        <p>Hi, I'm [Your Name] — founder of Screen Time. I started this business because homeowners were putting up with damaged screens for months simply because it was inconvenient to fix.</p>
-        <p>So I made it as easy as possible: you pop them out, I do the rest. Every screen is re-screened by hand with quality materials, and I stand behind every job.</p>
-        <p>As a locally owned, owner-operated business, you can count on me to show up on time and treat your home with respect.</p>
+        <h2>Built by a Young Entrepreneur, Powered by a Big Idea</h2>
+        <p>Screen Time was founded by our <strong>Chief Repair Officer</strong> — a young entrepreneur from Palatine who saw a real need in the community and decided to do something about it. Too many neighbors were living with torn and damaged window screens simply because fixing them was inconvenient.</p>
+        <p>The solution? Make it as effortless as possible. You pop the screens out, we handle everything else — pickup, expert re-screening, and delivery right back to your door.</p>
+        <p>But Screen Time is about more than just screens. It's a hands-on learning experience — building a real business, connecting with the community, exploring technology, and yes, earning some well-deserved spending money along the way.</p>
+        <p>Every job gets the same care and attention, backed by a 100% satisfaction guarantee. If something isn't right, we'll make it right.</p>
         <div class="about-stats">
           <div><span class="stat-num">100%</span><span class="stat-label">Satisfaction Guarantee</span></div>
-          <div><span class="stat-num">2–3</span><span class="stat-label">Day Turnaround</span></div>
-          <div><span class="stat-num">Local</span><span class="stat-label">Owner-Operated</span></div>
+          <div><span class="stat-num">1 Week</span><span class="stat-label">Turnaround Time</span></div>
+          <div><span class="stat-num">Local</span><span class="stat-label">Palatine Based</span></div>
         </div>
+      </div>
+    </div>
+    <div style="margin-top:64px;">
+      <div class="text-center">
+        <span class="tag">Our Mission</span>
+        <h2>More Than Just Screen Repair</h2>
+        <p class="section-sub">Screen Time was built with four goals in mind — and every job helps achieve all four.</p>
+      </div>
+      <div class="mission-grid">
+        <div class="mission-card"><div class="m-icon">🏘️</div><h4>Serve the Community</h4><p>Providing a genuinely useful, convenient service to neighbors right here in Palatine.</p></div>
+        <div class="mission-card"><div class="m-icon">📈</div><h4>Learn Business</h4><p>From pricing and marketing to customer service and logistics — every order is a real-world business lesson.</p></div>
+        <div class="mission-card"><div class="m-icon">💻</div><h4>Explore Technology</h4><p>Building the website, managing bookings, and handling payments — technology powers every part of this operation.</p></div>
+        <div class="mission-card"><div class="m-icon">💰</div><h4>Earn &amp; Grow</h4><p>Hard work deserves reward. Screen Time is proof that a great idea and a little hustle can go a long way.</p></div>
       </div>
     </div>
   </div>
@@ -343,14 +403,15 @@
   <div class="container">
     <span class="tag">FAQ</span>
     <h2>Common Questions</h2>
-    <p class="section-sub">Still have questions? Reach out anytime.</p>
+    <p class="section-sub">Still have questions? Email us at <a href="mailto:hello@palatinescreentime.com" style="color:var(--blue);font-weight:700;">hello@palatinescreentime.com</a></p>
     <div class="faq-list">
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Do I need to be home for pickup or delivery? <span class="arrow">▼</span></button><div class="faq-a">No! Just lean your screens outside. We'll text when we're on the way and again when we drop them back off.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How do I remove my screens? <span class="arrow">▼</span></button><div class="faq-a">Most screens pop out by pressing small tabs on the frame and tilting inward. Happy to walk you through it over the phone!</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">When exactly is my card charged? <span class="arrow">▼</span></button><div class="faq-a">Only after you review and confirm your invoice. 50% at pickup, 50% at delivery. You'll receive a receipt for each charge.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How long does it take? <span class="arrow">▼</span></button><div class="faq-a">Standard turnaround is 2–3 business days. We'll keep you updated via text throughout.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What if my screen frame is bent or broken? <span class="arrow">▼</span></button><div class="faq-a">We can repair or replace most standard aluminum frames. Note any damage in the quote form and we'll add it to your invoice.</div></div>
-      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Do you offer bulk or whole-house discounts? <span class="arrow">▼</span></button><div class="faq-a">Yes! 8+ screens gets a bulk discount. We also work with property managers, HOAs, and Airbnb hosts on recurring service agreements.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Do I need to be home for pickup or delivery? <span class="arrow">▼</span></button><div class="faq-a">No! Just pop your screens out and lean them against the outside of your home. We'll send an email when we're on the way and again when we drop them back off.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How do I remove my screens? <span class="arrow">▼</span></button><div class="faq-a">Most screens pop out by pressing small tabs on the frame and tilting inward. If you're not sure, just email us and we'll walk you through it before your pickup day.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What is the $17.85 pickup &amp; delivery charge? <span class="arrow">▼</span></button><div class="faq-a">The $17.85 fee covers the cost of driving to your home to pick up and return your screens. It's a flat one-time fee per order regardless of how many screens you have — so the more screens you repair at once, the better the value!</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">When exactly is my card charged? <span class="arrow">▼</span></button><div class="faq-a">Only after you review and confirm your invoice. 50% is charged at pickup and the remaining 50% at delivery. You'll receive an email receipt for each charge.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How long does it take? <span class="arrow">▼</span></button><div class="faq-a">Our standard turnaround is within 1 week from pickup to delivery. We'll keep you updated via email throughout the process.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What if my screen frame is bent or broken? <span class="arrow">▼</span></button><div class="faq-a">No problem — we can repair or replace most standard aluminum frames for a $10 add-on per frame. Just note any damage in the quote form and we'll include it in your invoice.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Is there a discount for multiple screens? <span class="arrow">▼</span></button><div class="faq-a">The more screens you repair in a single order, the more value you get from the flat $17.85 pickup fee. For example, 1 screen costs $37.85 total, but 6 screens works out to just $23 per screen including delivery. Batch them together and save!</div></div>
     </div>
   </div>
 </section>
@@ -358,24 +419,38 @@
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <div class="logo" style="color:#fff;margin-bottom:0;">🪟 Screen<span style="color:var(--accent);">Time</span></div>
-      <p>Locally owned window screen repair with free pickup &amp; delivery. Serving [Your City] and surrounding areas.</p>
-      <p style="margin-top:10px;">📞 <a href="tel:5550000000" style="color:var(--green-lt);">(555) 000-0000</a></p>
-      <p>📧 <a href="mailto:hello@screentimerepair.com" style="color:var(--green-lt);">hello@screentimerepair.com</a></p>
+      <div class="logo" style="color:#fff;margin-bottom:0;">🪟 Screen<span style="color:var(--coral);">Time</span></div>
+      <p>Locally owned window screen repair with pickup &amp; delivery. Proudly serving Palatine, IL.</p>
+      <p style="margin-top:12px;">✉️ <a href="mailto:hello@palatinescreentime.com" style="color:var(--blue-lt);">hello@palatinescreentime.com</a></p>
     </div>
-    <div class="footer-col"><h5>Services</h5><ul><li><a href="#services">Standard Fiberglass</a></li><li><a href="#services">Pet-Resistant Screen</a></li><li><a href="#services">Solar Screen</a></li><li><a href="#services">Sliding Door Screens</a></li><li><a href="#services">Frame Repair</a></li></ul></div>
-    <div class="footer-col"><h5>Company</h5><ul><li><a href="#about">About Us</a></li><li><a href="#how-it-works">How It Works</a></li><li><a href="#faq">FAQ</a></li><li><a href="#quote">Get a Quote</a></li><li><a href="#service-area">Service Area</a></li></ul></div>
+    <div class="footer-col"><h5>Services</h5><ul>
+      <li><a href="#services">Fiberglass Re-Screening</a></li>
+      <li><a href="#services">Frame Repair</a></li>
+      <li><a href="#services">Pricing</a></li>
+    </ul></div>
+    <div class="footer-col"><h5>Company</h5><ul>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#how-it-works">How It Works</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#quote">Get a Quote</a></li>
+      <li><a href="#service-area">Service Area</a></li>
+      <li><a href="mailto:hello@palatinescreentime.com">Contact Us</a></li>
+    </ul></div>
   </div>
-  <div class="footer-bottom"><span>© 2025 Screen Time. All rights reserved.</span><span>Locally owned &amp; operated · Fully insured</span></div>
+  <div class="footer-bottom">
+    <span>© 2025 Screen Time. All rights reserved. · Palatine, IL</span>
+    <span>Locally owned &amp; operated · Fully insured</span>
+  </div>
 </footer>
 
 <div class="mobile-cta">
-  <a href="tel:5550000000" class="btn btn-secondary">📞 Call</a>
+  <a href="mailto:hello@palatinescreentime.com" class="btn btn-secondary">✉️ Email Us</a>
   <a href="#quote" class="btn btn-primary">Get a Quote</a>
 </div>
 
 <script>
-  const PRICES = { standard:20, pet:30, solar:35, door:55 };
+  const SCREEN_PRICE = 20.00;
+  const PICKUP_FEE = 17.85;
   let screenCount = 0;
 
   function addScreenRow() {
@@ -384,53 +459,61 @@
     const div = document.createElement('div');
     div.className = 'screen-row'; div.id = 'row-' + id;
     div.innerHTML = `
-      <div><label>Screen Type</label><select onchange="recalc()" class="stype"><option value="standard">Standard Fiberglass</option><option value="pet">Pet-Resistant</option><option value="solar">Solar / Sun Screen</option><option value="door">Sliding Door</option></select></div>
-      <div><label>Width (in)</label><input type="number" min="4" max="120" placeholder="24" oninput="recalc()" class="sw" /></div>
-      <div><label>Height (in)</label><input type="number" min="4" max="120" placeholder="36" oninput="recalc()" class="sh" /></div>
-      <button type="button" class="remove-screen" onclick="removeRow(${id})">✕</button>`;
+      <div><label>Width (inches)</label><input type="number" min="4" max="120" placeholder="24" oninput="recalc()" class="sw" /></div>
+      <div><label>Height (inches)</label><input type="number" min="4" max="120" placeholder="36" oninput="recalc()" class="sh" /></div>
+      <button type="button" class="remove-screen" onclick="removeRow(${id})" title="Remove">✕</button>`;
     document.getElementById('screenRows').appendChild(div);
     recalc();
   }
 
-  function removeRow(id) { const e = document.getElementById('row-'+id); if(e){e.remove();recalc();} }
+  function removeRow(id) {
+    const e = document.getElementById('row-' + id);
+    if (e) { e.remove(); recalc(); }
+  }
 
   function recalc() {
-    let total=0, count=0;
+    let count = 0;
     document.querySelectorAll('.screen-row').forEach(r => {
-      const type=r.querySelector('.stype')?.value;
-      const w=parseFloat(r.querySelector('.sw')?.value);
-      const h=parseFloat(r.querySelector('.sh')?.value);
-      if(type&&w>0&&h>0){
-        const base=PRICES[type]||20;
-        const adj=w*h>864?((w*h-864)/144)*1.5:0;
-        total+=base+adj; count++;
-      }
+      const w = parseFloat(r.querySelector('.sw')?.value);
+      const h = parseFloat(r.querySelector('.sh')?.value);
+      if (w > 0 && h > 0) count++;
     });
-    const box=document.getElementById('estimateBox');
-    if(count>0){
+
+    const box = document.getElementById('estimateBox');
+    if (count > 0) {
+      const screenTotal = count * SCREEN_PRICE;
+      const grandTotal = screenTotal + PICKUP_FEE;
+      const half = grandTotal / 2;
+
       box.classList.add('visible');
-      document.getElementById('estAmount').textContent='$'+total.toFixed(2);
-      const half=(total/2).toFixed(2);
-      document.getElementById('estDetail').textContent=count+' screen(s) · $'+half+' at pickup · $'+half+' at delivery';
-    } else { box.classList.remove('visible'); }
+      document.getElementById('estAmount').textContent = '$' + grandTotal.toFixed(2);
+      document.getElementById('estBreakdown').innerHTML = `
+        <div class="est-row"><span>${count} screen(s) × $${SCREEN_PRICE.toFixed(2)}</span><span>$${screenTotal.toFixed(2)}</span></div>
+        <div class="est-row"><span>Pickup &amp; delivery fee</span><span>$${PICKUP_FEE.toFixed(2)}</span></div>
+        <div class="est-row total-row"><span>Total</span><span>$${grandTotal.toFixed(2)}</span></div>`;
+      document.getElementById('estDetail').textContent =
+        '$' + half.toFixed(2) + ' due at pickup  ·  $' + half.toFixed(2) + ' due at delivery';
+    } else {
+      box.classList.remove('visible');
+    }
   }
 
   function handleSubmit(e) {
     e.preventDefault();
-    document.getElementById('quoteForm').style.display='none';
-    document.getElementById('formSuccess').style.display='block';
-    document.getElementById('quote').scrollIntoView({behavior:'smooth'});
+    document.getElementById('quoteForm').style.display = 'none';
+    document.getElementById('formSuccess').style.display = 'block';
+    document.getElementById('quote').scrollIntoView({ behavior: 'smooth' });
   }
 
   function toggleFaq(btn) {
-    const ans=btn.nextElementSibling, open=ans.classList.contains('open');
-    document.querySelectorAll('.faq-a').forEach(a=>a.classList.remove('open'));
-    document.querySelectorAll('.faq-q').forEach(q=>q.classList.remove('open'));
-    if(!open){ans.classList.add('open');btn.classList.add('open');}
+    const ans = btn.nextElementSibling, open = ans.classList.contains('open');
+    document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
+    document.querySelectorAll('.faq-q').forEach(q => q.classList.remove('open'));
+    if (!open) { ans.classList.add('open'); btn.classList.add('open'); }
   }
 
-  const p=document.getElementById('pickupDate');
-  if(p){const t=new Date();t.setDate(t.getDate()+1);p.min=t.toISOString().split('T')[0];}
+  const p = document.getElementById('pickupDate');
+  if (p) { const t = new Date(); t.setDate(t.getDate() + 1); p.min = t.toISOString().split('T')[0]; }
   addScreenRow();
 </script>
 </body>
