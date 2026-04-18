@@ -331,6 +331,7 @@
             </div>
           </div>
           <div class="form-group"><label>Additional Notes</label><textarea placeholder="Gate codes, parking info, special instructions, frame damage details…"></textarea></div>
+          <input type="checkbox" name="botcheck" style="display:none;">
           <button type="submit" class="btn btn-blue btn-block" style="font-size:1rem;padding:14px;">Submit Quote Request →</button>
           <p style="text-align:center;font-size:.78rem;color:var(--muted);margin-top:12px;">No payment required now. Invoice sent first for your review.</p>
         </form>
@@ -438,18 +439,9 @@
   <a href="#quote" class="btn btn-primary">Get a Quote</a>
 </div>
 
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
-  // ─── EmailJS Configuration ────────────────────────────────────────────────
-  // 1. Create a free account at https://www.emailjs.com
-  // 2. Add an Email Service (Gmail) and note the Service ID
-  // 3. Create two Email Templates and note their Template IDs
-  // 4. Copy your Public Key from Account > API Keys
-  const EMAILJS_PUBLIC_KEY   = 'YOUR_PUBLIC_KEY';            // ← replace
-  const EMAILJS_SERVICE_ID   = 'YOUR_SERVICE_ID';            // ← replace
-  const TEMPLATE_TO_OWNER    = 'YOUR_OWNER_TEMPLATE_ID';     // ← replace
-  const TEMPLATE_TO_CUSTOMER = 'YOUR_CUSTOMER_TEMPLATE_ID';  // ← replace
-  emailjs.init(EMAILJS_PUBLIC_KEY);
+  // ─── Web3Forms Configuration ──────────────────────────────────────────────
+  const WEB3FORMS_KEY = 'bb828006-dfcb-4aa0-8419-47814f7df0ea';
   // ─────────────────────────────────────────────────────────────────────────
 
   // ─── Palatine IL center coordinates ───────────────────────────────────────
@@ -577,42 +569,44 @@
       `Screen ${i+1}: ${l.label.match(/\(.*\)/)?.[0] || ''} — $${l.price.toFixed(2)}`
     ).join('\n') + (hasFrameRepair ? '\nFrame repair charge: TBD (confirmed at pickup)' : '');
 
-    const ownerParams = {
-      from_name:       `${fname} ${lname}`,
-      reply_to:        email,
-      customer_phone:  phone,
-      address,
-      pickup_date:     pickupDate,
-      time_window:     timeWindow,
-      frame_condition: frameCondition,
-      screen_summary:  screenSummary,
-      screen_total:    '$' + screenTotal.toFixed(2),
-      pickup_fee:      '$' + PICKUP_FEE.toFixed(2),
-      grand_total:     '$' + grandTotal.toFixed(2) + (hasFrameRepair ? ' + frame repair TBD' : ''),
-      half_payment:    '$' + half.toFixed(2),
-      notes,
-      to_email:        'hello@palatinescreentime.com',
-    };
+    const message = `
+New Quote Request — Screen Time
 
-    const customerParams = {
-      to_name:        fname,
-      to_email:       email,
-      screen_summary: screenSummary,
-      screen_total:   '$' + screenTotal.toFixed(2),
-      pickup_fee:     '$' + PICKUP_FEE.toFixed(2),
-      grand_total:    '$' + grandTotal.toFixed(2) + (hasFrameRepair ? ' + frame repair TBD' : ''),
-      half_payment:   '$' + half.toFixed(2),
-      pickup_date:    pickupDate,
-      time_window:    timeWindow,
-    };
+Name: ${fname} ${lname}
+Email: ${email}
+Phone: ${phone}
+Address: ${address}
+Pickup Date: ${pickupDate}
+Time Window: ${timeWindow}
+Frame Condition: ${frameCondition}
+
+--- Screens ---
+${screenSummary}
+
+--- Totals ---
+Screen subtotal: $${screenTotal.toFixed(2)}
+Pickup & delivery fee: $${PICKUP_FEE.toFixed(2)}
+Estimated total: $${grandTotal.toFixed(2)}${hasFrameRepair ? ' + frame repair TBD' : ''}
+Due at pickup: $${half.toFixed(2)}
+Due at delivery: $${half.toFixed(2)}
+
+Notes: ${notes}
+    `.trim();
 
     try {
-      await Promise.all([
-        emailjs.send(EMAILJS_SERVICE_ID, TEMPLATE_TO_OWNER,    ownerParams),
-        emailjs.send(EMAILJS_SERVICE_ID, TEMPLATE_TO_CUSTOMER, customerParams),
-      ]);
+      await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          access_key: WEB3FORMS_KEY,
+          subject:    `New Quote Request — ${fname} ${lname}`,
+          from_name:  'Screen Time Website',
+          replyto:    email,
+          message,
+        }),
+      });
     } catch (err) {
-      console.error('EmailJS error:', err);
+      console.error('Web3Forms error:', err);
     }
 
     form.style.display = 'none';
