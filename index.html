@@ -253,16 +253,15 @@
         <table class="pricing-table">
           <thead><tr><th>Item</th><th>Price</th></tr></thead>
           <tbody>
-            <tr><td>Re-screening (per screen)</td><td class="price-val">(H + W) × $0.48</td></tr>
+            <tr><td>Re-screening (per screen)</td><td class="price-val">Quoted by size</td></tr>
             <tr><td>Includes</td><td>High-quality fiberglass mesh + new spline</td></tr>
             <tr><td>Frame repair add-on (if needed)</td><td class="price-val">$10.00</td></tr>
             <tr><td>Pickup &amp; delivery charge (flat fee)</td><td class="price-val">$17.85</td></tr>
           </tbody>
         </table>
         <div class="pricing-note">
-          <strong>💡 Example:</strong> A 24" × 36" screen = (24 + 36) × $0.48 = <strong>$28.80</strong><br>
-          4 such screens + pickup fee = (4 × $28.80) + $17.85 = <strong>$133.05 total</strong><br>
-          $66.53 due at pickup &nbsp;·&nbsp; $66.52 due at delivery
+          <strong>💡 How it works:</strong> Submit your screen dimensions in the quote form and we'll send your exact total right to your inbox — no guessing.<br><br>
+          <strong>📧 Need aluminum or pet screen?</strong> Email us at <a href="mailto:hello@palatinescreentime.com" style="color:var(--blue);font-weight:700;">hello@palatinescreentime.com</a> for a custom quote.
         </div>
       </div>
     </div>
@@ -287,10 +286,6 @@
           <li><span>📅</span><span>We schedule a pickup window that works for you</span></li>
           <li><span>🪟</span><span>Remove screens &amp; set outside — we handle everything from there</span></li>
         </ul>
-        <div class="payment-note">
-          <strong>🔒 Secure 50/50 Split Payment</strong><br><br>
-          50% is charged at pickup when we collect your screens. The remaining 50% is charged when we return them. Your full card number is never visible to us — all payments processed securely.
-        </div>
       </div>
       <div class="form-card">
         <div id="formSuccess">
@@ -308,7 +303,7 @@
             <div class="form-group"><label>Email <span class="req">*</span></label><input type="email" placeholder="jane@email.com" required /></div>
             <div class="form-group"><label>Phone (optional)</label><input type="tel" placeholder="(555) 000-0000" /></div>
           </div>
-          <div class="form-group"><label>Pickup Address <span class="req">*</span></label><input type="text" placeholder="123 Main St, Palatine, IL 60067" required /></div>
+          <div class="form-group"><label>Pickup Address <span class="req">*</span></label><input type="text" id="pickupAddress" placeholder="123 Main St, Palatine, IL 60067" required onblur="checkAddress(this)" /></div>
 
           <hr class="form-divider" />
           <h3 style="font-size:1.1rem;font-weight:800;margin-bottom:6px;">Your Screens</h3>
@@ -316,32 +311,27 @@
           <div id="screenRows"></div>
           <button type="button" class="add-screen" onclick="addScreenRow()">+ Add Another Screen</button>
 
-          <div class="estimate-box" id="estimateBox">
-            <div class="est-label">Estimated Total</div>
-            <div class="est-amount" id="estAmount">$0.00</div>
-            <div class="est-breakdown" id="estBreakdown"></div>
-            <div class="est-detail" id="estDetail"></div>
-          </div>
-
           <hr class="form-divider" />
           <h3 style="font-size:1.1rem;font-weight:800;margin-bottom:16px;">Scheduling &amp; Details</h3>
           <div class="form-row">
-            <div class="form-group"><label>Preferred Pickup Date <span class="req">*</span></label><input type="date" required id="pickupDate" /></div>
+            <div class="form-group"><label>Preferred Pickup Date <span class="req">*</span></label><input type="date" required id="pickupDate" onchange="updateTimeWindows()" /></div>
             <div class="form-group"><label>Preferred Time Window <span class="req">*</span></label>
-              <select required><option value="">Select a window</option><option>8am – 10am</option><option>10am – 12pm</option><option>12pm – 2pm</option><option>2pm – 4pm</option><option>4pm – 6pm</option></select>
+              <select required id="timeWindow"><option value="">Select a date first</option></select>
             </div>
           </div>
-          <div class="form-group"><label>Frame Condition</label>
-            <select><option>All frames look okay</option><option>One or more frames are bent/damaged</option><option>Not sure — please check on pickup</option></select>
+          <div class="form-group">
+            <label>Frame Condition</label>
+            <select id="frameCondition" onchange="checkFrameCondition()"><option>All frames look okay</option><option>One or more frames are bent/damaged</option><option>Not sure — please check on pickup</option></select>
+            <p style="font-size:.8rem;color:var(--muted);margin-top:6px;">🔧 Have a bent or broken frame? We can help with minor repairs! Just make a note in Additional Notes below and we'll do our best to keep your existing frame.</p>
+            <div id="frameRepairNotice" style="display:none;margin-top:10px;background:#fff8f0;border:1.5px solid #f4a261;border-radius:8px;padding:12px 14px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;font-size:.88rem;">
+                <span>🔧 <strong>Frame repair charge</strong></span>
+                <span style="font-weight:800;color:#e76f51;">TBD</span>
+              </div>
+              <p style="font-size:.78rem;color:#92400e;margin-top:4px;">A $10/frame repair charge may apply — we'll confirm the exact amount when we pick up and include it in your invoice.</p>
+            </div>
           </div>
-          <div class="form-group"><label>How did you hear about us?</label>
-            <select><option value="">Select one</option><option>Google Search</option><option>Nextdoor</option><option>Facebook / Instagram</option><option>Word of Mouth / Referral</option><option>Door Hanger</option><option>Other</option></select>
-          </div>
-          <div class="form-group"><label>Additional Notes</label><textarea placeholder="Gate codes, parking info, special instructions…"></textarea></div>
-          <div class="checkbox-group">
-            <input type="checkbox" id="terms" required />
-            <label for="terms">I understand a $17.85 pickup &amp; delivery fee applies, 50% of the total is charged at pickup, and 50% at delivery. My card will be requested after I review and confirm the invoice. <span class="req">*</span></label>
-          </div>
+          <div class="form-group"><label>Additional Notes</label><textarea placeholder="Gate codes, parking info, special instructions, frame damage details…"></textarea></div>
           <button type="submit" class="btn btn-blue btn-block" style="font-size:1rem;padding:14px;">Submit Quote Request →</button>
           <p style="text-align:center;font-size:.78rem;color:var(--muted);margin-top:12px;">No payment required now. Invoice sent first for your review.</p>
         </form>
@@ -456,39 +446,82 @@
   // 2. Add an Email Service (Gmail) and note the Service ID
   // 3. Create two Email Templates and note their Template IDs
   // 4. Copy your Public Key from Account > API Keys
-  const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';       // ← replace
-  const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';       // ← replace
-  const TEMPLATE_TO_OWNER   = 'YOUR_OWNER_TEMPLATE_ID'; // ← replace (sends to hello@palatinescreentime.com)
-  const TEMPLATE_TO_CUSTOMER = 'YOUR_CUSTOMER_TEMPLATE_ID'; // ← replace (sends confirmation to customer)
+  const EMAILJS_PUBLIC_KEY   = 'YOUR_PUBLIC_KEY';            // ← replace
+  const EMAILJS_SERVICE_ID   = 'YOUR_SERVICE_ID';            // ← replace
+  const TEMPLATE_TO_OWNER    = 'YOUR_OWNER_TEMPLATE_ID';     // ← replace
+  const TEMPLATE_TO_CUSTOMER = 'YOUR_CUSTOMER_TEMPLATE_ID';  // ← replace
   emailjs.init(EMAILJS_PUBLIC_KEY);
   // ─────────────────────────────────────────────────────────────────────────
 
+  // ─── Palatine IL center coordinates ───────────────────────────────────────
+  const PALATINE_LAT  = 42.1103;
+  const PALATINE_LNG  = -88.0342;
+  const MAX_MILES     = 5;
+
   const PICKUP_FEE = 17.85;
-  const MAX_DIM    = 42;      // max inches per side
-  const RATE       = 0.48;    // $ per inch of (H + W)
+  const MAX_DIM    = 42;
+  const RATE       = 0.48;
   let screenCount  = 0;
 
-  function screenPrice(w, h) {
-    return (w + h) * RATE;
+  // ─── Haversine distance (miles) ───────────────────────────────────────────
+  function haversine(lat1, lng1, lat2, lng2) {
+    const R = 3958.8; // Earth radius in miles
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLng = (lng2 - lng1) * Math.PI / 180;
+    const a = Math.sin(dLat/2)**2 +
+              Math.cos(lat1 * Math.PI/180) * Math.cos(lat2 * Math.PI/180) *
+              Math.sin(dLng/2)**2;
+    return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
   }
 
+  // ─── Address validation via Nominatim ─────────────────────────────────────
+  async function checkAddress(input) {
+    const val = input.value.trim();
+    if (!val || val.length < 8) return;
+    try {
+      const url = `https://nominatim.openstreetmap.org/search?q=${encodeURIComponent(val)}&format=json&limit=1&countrycodes=us`;
+      const res  = await fetch(url, { headers: { 'Accept-Language': 'en' } });
+      const data = await res.json();
+      if (!data.length) return; // can't geocode — let it through
+      const { lat, lon } = data[0];
+      const miles = haversine(PALATINE_LAT, PALATINE_LNG, parseFloat(lat), parseFloat(lon));
+      if (miles > MAX_MILES) {
+        input.value = '';
+        document.getElementById('areaModal').style.display = 'flex';
+      }
+    } catch (err) {
+      console.warn('Address check failed:', err); // silent fail — don't block user
+    }
+  }
+
+  function closeAreaModal() {
+    document.getElementById('areaModal').style.display = 'none';
+  }
+
+  // ─── Frame condition notice ───────────────────────────────────────────────
+  function checkFrameCondition() {
+    const sel    = document.getElementById('frameCondition');
+    const notice = document.getElementById('frameRepairNotice');
+    notice.style.display = sel.value === 'One or more frames are bent/damaged' ? 'block' : 'none';
+  }
+
+  // ─── Screen rows ──────────────────────────────────────────────────────────
   function addScreenRow() {
     screenCount++;
-    const id = screenCount;
+    const id  = screenCount;
     const div = document.createElement('div');
     div.className = 'screen-row'; div.id = 'row-' + id;
     div.innerHTML = `
       <div>
         <label>Width (inches, max ${MAX_DIM}")</label>
-        <input type="number" min="4" max="${MAX_DIM}" placeholder="24" oninput="checkDim(this);recalc()" class="sw" />
+        <input type="number" min="4" max="${MAX_DIM}" placeholder="24" oninput="checkDim(this)" class="sw" />
       </div>
       <div>
         <label>Height (inches, max ${MAX_DIM}")</label>
-        <input type="number" min="4" max="${MAX_DIM}" placeholder="36" oninput="checkDim(this);recalc()" class="sh" />
+        <input type="number" min="4" max="${MAX_DIM}" placeholder="36" oninput="checkDim(this)" class="sh" />
       </div>
       <button type="button" class="remove-screen" onclick="removeRow(${id})" title="Remove">✕</button>`;
     document.getElementById('screenRows').appendChild(div);
-    recalc();
   }
 
   function checkDim(input) {
@@ -501,90 +534,65 @@
 
   function removeRow(id) {
     const el = document.getElementById('row-' + id);
-    if (el) { el.remove(); recalc(); }
+    if (el) el.remove();
   }
+
+  function screenPrice(w, h) { return (w + h) * RATE; }
 
   function buildBreakdownLines() {
     const lines = [];
-    document.querySelectorAll('.screen-row').forEach((r, i) => {
+    document.querySelectorAll('.screen-row').forEach(r => {
       const w = parseFloat(r.querySelector('.sw')?.value);
       const h = parseFloat(r.querySelector('.sh')?.value);
       if (w > 0 && h > 0) {
-        const p = screenPrice(w, h);
-        lines.push({ label: `Screen ${lines.length + 1} (${w}" × ${h}")`, price: p });
+        lines.push({ label: `Screen ${lines.length + 1} (${w}" × ${h}")`, price: screenPrice(w, h) });
       }
     });
     return lines;
   }
 
-  function recalc() {
-    const lines = buildBreakdownLines();
-    const box = document.getElementById('estimateBox');
-    if (lines.length === 0) { box.classList.remove('visible'); return; }
-
-    const screenTotal = lines.reduce((s, l) => s + l.price, 0);
-    const grandTotal  = screenTotal + PICKUP_FEE;
-    const half        = grandTotal / 2;
-
-    box.classList.add('visible');
-    document.getElementById('estAmount').textContent = '$' + grandTotal.toFixed(2);
-
-    const rowsHtml = lines.map(l =>
-      `<div class="est-row"><span>${l.label}</span><span>$${l.price.toFixed(2)}</span></div>`
-    ).join('');
-
-    document.getElementById('estBreakdown').innerHTML = `
-      ${rowsHtml}
-      <div class="est-row"><span>Pickup &amp; delivery fee</span><span>$${PICKUP_FEE.toFixed(2)}</span></div>
-      <div class="est-row total-row"><span>Total</span><span>$${grandTotal.toFixed(2)}</span></div>`;
-    document.getElementById('estDetail').textContent =
-      '$' + half.toFixed(2) + ' due at pickup  ·  $' + half.toFixed(2) + ' due at delivery';
-  }
-
+  // ─── Form submit ──────────────────────────────────────────────────────────
   async function handleSubmit(e) {
     e.preventDefault();
     const form = document.getElementById('quoteForm');
     const btn  = form.querySelector('[type="submit"]');
     btn.textContent = 'Sending…'; btn.disabled = true;
 
-    // Collect form values
-    const fname   = form.querySelector('input[placeholder="Jane"]').value;
-    const lname   = form.querySelector('input[placeholder="Smith"]').value;
-    const email   = form.querySelector('input[type="email"]').value;
-    const phone   = form.querySelector('input[type="tel"]').value || 'Not provided';
-    const address = form.querySelector('input[placeholder*="Palatine"]').value;
-    const notes   = form.querySelector('textarea').value || 'None';
-    const selects = form.querySelectorAll('select');
-    const timeWindow   = selects[0].value;
-    const frameCondition = selects[1].value;
-    const hearAboutUs  = selects[2].value;
-    const pickupDate   = document.getElementById('pickupDate').value;
+    const fname          = form.querySelector('input[placeholder="Jane"]').value;
+    const lname          = form.querySelector('input[placeholder="Smith"]').value;
+    const email          = form.querySelector('input[type="email"]').value;
+    const phone          = form.querySelector('input[type="tel"]').value || 'Not provided';
+    const address        = document.getElementById('pickupAddress').value;
+    const notes          = form.querySelector('textarea').value || 'None';
+    const timeWindow     = document.getElementById('timeWindow').value;
+    const frameCondition = document.getElementById('frameCondition').value;
+    const pickupDate     = document.getElementById('pickupDate').value;
+    const hasFrameRepair = frameCondition === 'One or more frames are bent/damaged';
 
-    const lines = buildBreakdownLines();
+    const lines       = buildBreakdownLines();
     const screenTotal = lines.reduce((s, l) => s + l.price, 0);
     const grandTotal  = screenTotal + PICKUP_FEE;
     const half        = grandTotal / 2;
 
     const screenSummary = lines.map((l, i) =>
       `Screen ${i+1}: ${l.label.match(/\(.*\)/)?.[0] || ''} — $${l.price.toFixed(2)}`
-    ).join('\n');
+    ).join('\n') + (hasFrameRepair ? '\nFrame repair charge: TBD (confirmed at pickup)' : '');
 
     const ownerParams = {
-      from_name:      `${fname} ${lname}`,
-      reply_to:       email,
-      customer_phone: phone,
+      from_name:       `${fname} ${lname}`,
+      reply_to:        email,
+      customer_phone:  phone,
       address,
-      pickup_date:    pickupDate,
-      time_window:    timeWindow,
+      pickup_date:     pickupDate,
+      time_window:     timeWindow,
       frame_condition: frameCondition,
-      hear_about_us:  hearAboutUs,
-      screen_summary: screenSummary,
-      screen_total:   '$' + screenTotal.toFixed(2),
-      pickup_fee:     '$' + PICKUP_FEE.toFixed(2),
-      grand_total:    '$' + grandTotal.toFixed(2),
-      half_payment:   '$' + half.toFixed(2),
+      screen_summary:  screenSummary,
+      screen_total:    '$' + screenTotal.toFixed(2),
+      pickup_fee:      '$' + PICKUP_FEE.toFixed(2),
+      grand_total:     '$' + grandTotal.toFixed(2) + (hasFrameRepair ? ' + frame repair TBD' : ''),
+      half_payment:    '$' + half.toFixed(2),
       notes,
-      to_email:       'hello@palatinescreentime.com',
+      to_email:        'hello@palatinescreentime.com',
     };
 
     const customerParams = {
@@ -593,7 +601,7 @@
       screen_summary: screenSummary,
       screen_total:   '$' + screenTotal.toFixed(2),
       pickup_fee:     '$' + PICKUP_FEE.toFixed(2),
-      grand_total:    '$' + grandTotal.toFixed(2),
+      grand_total:    '$' + grandTotal.toFixed(2) + (hasFrameRepair ? ' + frame repair TBD' : ''),
       half_payment:   '$' + half.toFixed(2),
       pickup_date:    pickupDate,
       time_window:    timeWindow,
@@ -606,7 +614,6 @@
       ]);
     } catch (err) {
       console.error('EmailJS error:', err);
-      // Still show success to avoid user frustration — owner can also be notified by fallback
     }
 
     form.style.display = 'none';
@@ -614,6 +621,7 @@
     document.getElementById('quote').scrollIntoView({ behavior: 'smooth' });
   }
 
+  // ─── FAQ accordion ────────────────────────────────────────────────────────
   function toggleFaq(btn) {
     const ans = btn.nextElementSibling, open = ans.classList.contains('open');
     document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
@@ -621,9 +629,40 @@
     if (!open) { ans.classList.add('open'); btn.classList.add('open'); }
   }
 
+  // ─── Pickup date min + time windows ───────────────────────────────────────
   const p = document.getElementById('pickupDate');
   if (p) { const t = new Date(); t.setDate(t.getDate() + 1); p.min = t.toISOString().split('T')[0]; }
+
+  function updateTimeWindows() {
+    const dateVal = document.getElementById('pickupDate').value;
+    const sel     = document.getElementById('timeWindow');
+    sel.innerHTML = '<option value="">Select a window</option>';
+    if (!dateVal) return;
+    const [y, m, d] = dateVal.split('-').map(Number);
+    const day        = new Date(y, m - 1, d).getDay(); // 0=Sun, 6=Sat
+    const isWeekend  = (day === 0 || day === 6);
+    const windows    = isWeekend
+      ? ['8am – 10am', '10am – 12pm', '12pm – 2pm', '2pm – 4pm', '4pm – 6pm']
+      : ['4pm – 6pm', '6pm – 8pm'];
+    windows.forEach(w => {
+      const opt = document.createElement('option');
+      opt.value = w; opt.textContent = w;
+      sel.appendChild(opt);
+    });
+  }
+
   addScreenRow();
 </script>
+<!-- Out-of-area modal -->
+<div id="areaModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:999;align-items:center;justify-content:center;padding:20px;">
+  <div style="background:#fff;border-radius:16px;padding:36px 32px;max-width:420px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.25);">
+    <div style="font-size:2.8rem;margin-bottom:12px;">📍</div>
+    <h3 style="font-size:1.2rem;font-weight:900;color:#1a1a2e;margin-bottom:10px;">Outside Our Service Area</h3>
+    <p style="color:#6c757d;font-size:.93rem;line-height:1.6;margin-bottom:20px;">Looks like that address is outside our current service area around Palatine, IL. We'd still love to help — send us an email and we'll see what we can do!</p>
+    <a href="mailto:hello@palatinescreentime.com" style="display:block;background:#0077b6;color:#fff;font-weight:700;padding:12px 20px;border-radius:8px;margin-bottom:12px;text-decoration:none;">✉️ hello@palatinescreentime.com</a>
+    <button onclick="closeAreaModal()" style="background:none;border:1.5px solid #dee2e6;color:#6c757d;font-weight:600;padding:10px 20px;border-radius:8px;cursor:pointer;width:100%;font-family:inherit;font-size:.9rem;">Close</button>
+  </div>
+</div>
+
 </body>
 </html>
