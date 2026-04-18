@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Screen Time | Window Screen Repair in Palatine, IL</title>
   <meta name="description" content="Professional window screen repair in Palatine, IL. We pick up, re-screen, and return. Get a free quote at palatinescreentime.com." />
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%230077b6'/><clipPath id='c'><rect width='100' height='100' rx='20'/></clipPath><g clip-path='url(%23c)'><line x1='0' y1='20' x2='100' y2='20' stroke='rgba(255,255,255,0.25)' stroke-width='2'/><line x1='0' y1='34' x2='100' y2='34' stroke='rgba(255,255,255,0.25)' stroke-width='2'/><line x1='0' y1='48' x2='100' y2='48' stroke='rgba(255,255,255,0.25)' stroke-width='2'/><line x1='0' y1='62' x2='100' y2='62' stroke='rgba(255,255,255,0.25)' stroke-width='2'/><line x1='0' y1='76' x2='100' y2='76' stroke='rgba(255,255,255,0.25)' stroke-width='2'/><line x1='0' y1='90' x2='100' y2='90' stroke='rgba(255,255,255,0.25)' stroke-width='2'/><line x1='20' y1='0' x2='20' y2='100' stroke='rgba(255,255,255,0.25)' stroke-width='2'/><line x1='34' y1='0' x2='34' y2='100' stroke='rgba(255,255,255,0.25)' stroke-width='2'/><line x1='48' y1='0' x2='48' y2='100' stroke='rgba(255,255,255,0.25)' stroke-width='2'/><line x1='62' y1='0' x2='62' y2='100' stroke='rgba(255,255,255,0.25)' stroke-width='2'/><line x1='76' y1='0' x2='76' y2='100' stroke='rgba(255,255,255,0.25)' stroke-width='2'/><line x1='90' y1='0' x2='90' y2='100' stroke='rgba(255,255,255,0.25)' stroke-width='2'/></g><text x='50' y='66' text-anchor='middle' font-family='Segoe UI,system-ui,sans-serif' font-weight='900' font-size='42' fill='white'>ST</text></svg>" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -153,15 +154,80 @@
     .footer-col ul li a:hover { color:var(--blue-lt); }
     .footer-bottom { max-width:1100px; margin:24px auto 0; display:flex; justify-content:space-between; font-size:.82rem; flex-wrap:wrap; gap:8px; }
 
+    .hamburger { display:none; }
     .mobile-cta { display:none; position:fixed; bottom:0; left:0; right:0; background:#fff; border-top:1px solid #e9ecef; padding:12px 20px; z-index:99; gap:12px; }
     @media(max-width:768px) {
+      /* Mobile CTA bar */
       .mobile-cta { display:flex; }
       .mobile-cta .btn { flex:1; padding:12px; font-size:.9rem; }
-      .hero-inner, .form-layout, .about-inner, .service-single { grid-template-columns:1fr; }
-      .hero-card, .nav-links { display:none; }
-      .form-row, .screen-row { grid-template-columns:1fr; }
-      .footer-grid { grid-template-columns:1fr; }
+
+      /* Add bottom padding so content doesn't hide behind fixed CTA bar */
+      body { padding-bottom: 72px; }
+
+      /* Nav — hide links, show hamburger */
+      .nav-links { display:none; }
+      .nav-email { display:none; }
+      .nav-quote-btn { display:none; }
+      .hamburger { display:flex; }
+      .mobile-nav { display:none; position:fixed; top:64px; left:0; right:0; background:#fff; border-bottom:1px solid #e9ecef; padding:16px 24px; z-index:99; flex-direction:column; gap:0; box-shadow:0 4px 16px rgba(0,0,0,.08); }
+      .mobile-nav.open { display:flex; }
+      .mobile-nav a { padding:14px 0; font-size:1rem; font-weight:600; color:var(--dark); border-bottom:1px solid #f0f0f0; }
+      .mobile-nav a:last-child { border-bottom:none; }
+
+      /* Hero */
+      .hero-inner { grid-template-columns:1fr; }
+      .hero-card { display:none; }
+      #hero { padding:60px 20px 52px; }
+      #hero p { font-size:1rem; }
+      .hero-btns { flex-direction:column; }
+      .hero-btns .btn { text-align:center; }
+
+      /* Trust bar */
+      #trust { padding:16px; }
+      .trust-inner { gap:16px; justify-content:flex-start; }
+      .trust-item { font-size:.8rem; }
+
+      /* Sections */
+      .section { padding:52px 0; }
+
+      /* Process cards */
+      .process-grid { grid-template-columns:1fr 1fr; gap:16px; }
+      .process-card { padding:20px 16px; }
+
+      /* Pricing */
+      .service-single { grid-template-columns:1fr; padding:24px 20px; }
+      .pricing-table { font-size:.82rem; }
+      .pricing-table th, .pricing-table td { padding:8px 10px; }
+      .pricing-note { font-size:.8rem; }
+
+      /* Form */
+      .form-layout { grid-template-columns:1fr; }
+      .form-row { grid-template-columns:1fr; }
+      .screen-row { grid-template-columns:1fr 1fr auto; }
+      .form-card { padding:24px 20px; }
+      .form-info { padding:0; }
+
+      /* About */
+      .about-inner { grid-template-columns:1fr; }
+      .about-img { min-height:220px; padding:28px; }
+      .about-img .big-emoji { font-size:3.5rem; }
       .about-stats { gap:20px; }
+      .mission-grid { grid-template-columns:1fr 1fr; gap:16px; }
+      .mission-card { padding:18px 14px; }
+
+      /* Footer */
+      .footer-grid { grid-template-columns:1fr; gap:28px; }
+      .footer-bottom { flex-direction:column; gap:4px; font-size:.78rem; }
+
+      /* Area section */
+      .area-single { padding:32px 24px; }
+    }
+
+    @media(max-width:420px) {
+      .process-grid { grid-template-columns:1fr; }
+      .mission-grid { grid-template-columns:1fr; }
+      .screen-row { grid-template-columns:1fr 1fr auto; }
+      #hero h1 { font-size:1.8rem; }
     }
   </style>
 </head>
@@ -178,11 +244,22 @@
       <a href="#faq">FAQ</a>
     </div>
     <div style="display:flex;gap:12px;align-items:center;">
-      <a href="mailto:hello@palatinescreentime.com" style="font-weight:700;color:var(--blue);font-size:.95rem;">✉️ hello@palatinescreentime.com</a>
-      <a href="#quote" class="btn btn-primary" style="padding:10px 22px;font-size:.9rem;">Get a Quote</a>
+      <a href="mailto:hello@palatinescreentime.com" class="nav-email" style="font-weight:700;color:var(--blue);font-size:.95rem;">✉️ hello@palatinescreentime.com</a>
+      <a href="#quote" class="btn btn-primary nav-quote-btn" style="padding:10px 22px;font-size:.9rem;">Get a Quote</a>
+      <button class="hamburger" onclick="toggleMobileNav()" aria-label="Menu" style="display:none;">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </div>
 </nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="#how-it-works" onclick="closeMobileNav()">How It Works</a>
+  <a href="#services" onclick="closeMobileNav()">Services &amp; Pricing</a>
+  <a href="#quote" onclick="closeMobileNav()">Get a Quote</a>
+  <a href="#about" onclick="closeMobileNav()">About</a>
+  <a href="#faq" onclick="closeMobileNav()">FAQ</a>
+  <a href="mailto:hello@palatinescreentime.com">✉️ hello@palatinescreentime.com</a>
+</div>
 
 <section id="hero">
   <div class="hero-inner">
@@ -642,6 +719,14 @@ Notes: ${notes}
       opt.value = w; opt.textContent = w;
       sel.appendChild(opt);
     });
+  }
+
+  // ─── Mobile nav ───────────────────────────────────────────────────────────
+  function toggleMobileNav() {
+    document.getElementById('mobileNav').classList.toggle('open');
+  }
+  function closeMobileNav() {
+    document.getElementById('mobileNav').classList.remove('open');
   }
 
   addScreenRow();
