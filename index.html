@@ -548,7 +548,7 @@
   const MAX_MILES     = 5;
 
   const PICKUP_FEE = 9.62;
-  const MAX_DIM    = 42;
+  const MAX_DIM    = 120;
   const RATE       = 0.29;
   let screenCount  = 0;
 
@@ -602,11 +602,11 @@
     div.className = 'screen-row'; div.id = 'row-' + id;
     div.innerHTML = `
       <div>
-        <label>Width (inches, max ${MAX_DIM}")</label>
+        <label>Width (inches)</label>
         <input type="number" min="4" max="${MAX_DIM}" placeholder="" oninput="checkDim(this)" class="sw" />
       </div>
       <div>
-        <label>Height (inches, max ${MAX_DIM}")</label>
+        <label>Height (inches)</label>
         <input type="number" min="4" max="${MAX_DIM}" placeholder="" oninput="checkDim(this)" class="sh" />
       </div>
       <button type="button" class="remove-screen" onclick="removeRow(${id})" title="Remove">✕</button>`;
@@ -615,10 +615,7 @@
 
   function checkDim(input) {
     const val = parseFloat(input.value);
-    if (val > MAX_DIM) {
-      input.value = '';
-      alert('That screen dimension exceeds 42". Please send us an email at hello@palatinescreentime.com for a custom quote on larger screens!');
-    }
+    if (val <= 0) input.value = '';
   }
 
   function removeRow(id) {
