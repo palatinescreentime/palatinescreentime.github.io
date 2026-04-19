@@ -154,6 +154,10 @@
     .footer-col ul li a:hover { color:var(--blue-lt); }
     .footer-bottom { max-width:1100px; margin:24px auto 0; display:flex; justify-content:space-between; font-size:.82rem; flex-wrap:wrap; gap:8px; }
 
+    .multi-check-group { display:flex; flex-direction:column; gap:6px; border:1.5px solid #dee2e6; border-radius:7px; padding:10px 14px; background:#fff; }
+    .multi-check-group:focus-within { border-color:var(--blue); box-shadow:0 0 0 3px rgba(0,119,182,.12); }
+    .check-option { display:flex; align-items:center; gap:8px; font-size:.92rem; color:#444; cursor:pointer; padding:2px 0; }
+    .check-option input[type="checkbox"] { width:16px; height:16px; margin:0; accent-color:var(--blue); cursor:pointer; flex-shrink:0; }
     .hamburger { display:none; }
     .mobile-cta { display:none; position:fixed; bottom:0; left:0; right:0; background:#fff; border-top:1px solid #e9ecef; padding:12px 20px; z-index:99; gap:12px; }
     @media(max-width:768px) {
@@ -388,11 +392,28 @@
           <button type="button" class="add-screen" onclick="addScreenRow()">+ Add Another Screen</button>
 
           <hr class="form-divider" />
-          <h3 style="font-size:1.1rem;font-weight:800;margin-bottom:16px;">Scheduling &amp; Details</h3>
+          <h3 style="font-size:1.1rem;font-weight:800;margin-bottom:6px;">Scheduling &amp; Details</h3>
+          <p style="font-size:.82rem;color:var(--muted);margin-bottom:16px;">We'll reach out to coordinate the exact pickup and drop-off dates &amp; times that work best for you.</p>
           <div class="form-row">
-            <div class="form-group"><label>Preferred Pickup Date <span class="req">*</span></label><input type="date" required id="pickupDate" onchange="updateTimeWindows()" /></div>
-            <div class="form-group"><label>Preferred Time Window <span class="req">*</span></label>
-              <select required id="timeWindow"><option value="">Select a date first</option></select>
+            <div class="form-group">
+              <label>Preferred Pickup Days <span class="req">*</span></label>
+              <div class="multi-check-group" id="pickupDays">
+                <label class="check-option"><input type="checkbox" name="pickupDay" value="Monday"> Monday</label>
+                <label class="check-option"><input type="checkbox" name="pickupDay" value="Tuesday"> Tuesday</label>
+                <label class="check-option"><input type="checkbox" name="pickupDay" value="Wednesday"> Wednesday</label>
+                <label class="check-option"><input type="checkbox" name="pickupDay" value="Thursday"> Thursday</label>
+                <label class="check-option"><input type="checkbox" name="pickupDay" value="Friday"> Friday</label>
+                <label class="check-option"><input type="checkbox" name="pickupDay" value="Saturday"> Saturday</label>
+                <label class="check-option"><input type="checkbox" name="pickupDay" value="Sunday"> Sunday</label>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Preferred Time of Day <span class="req">*</span></label>
+              <div class="multi-check-group" id="pickupTimes">
+                <label class="check-option"><input type="checkbox" name="pickupTime" value="Morning (before noon)"> Morning <span style="color:var(--muted);font-size:.8rem;">(before noon)</span></label>
+                <label class="check-option"><input type="checkbox" name="pickupTime" value="Afternoon (12pm–5pm)"> Afternoon <span style="color:var(--muted);font-size:.8rem;">(12pm–5pm)</span></label>
+                <label class="check-option"><input type="checkbox" name="pickupTime" value="Evening (after 5pm)"> Evening <span style="color:var(--muted);font-size:.8rem;">(after 5pm)</span></label>
+              </div>
             </div>
           </div>
           <div class="form-group">
@@ -582,11 +603,11 @@
     div.innerHTML = `
       <div>
         <label>Width (inches, max ${MAX_DIM}")</label>
-        <input type="number" min="4" max="${MAX_DIM}" placeholder="24" oninput="checkDim(this)" class="sw" />
+        <input type="number" min="4" max="${MAX_DIM}" placeholder="" oninput="checkDim(this)" class="sw" />
       </div>
       <div>
         <label>Height (inches, max ${MAX_DIM}")</label>
-        <input type="number" min="4" max="${MAX_DIM}" placeholder="36" oninput="checkDim(this)" class="sh" />
+        <input type="number" min="4" max="${MAX_DIM}" placeholder="" oninput="checkDim(this)" class="sh" />
       </div>
       <button type="button" class="remove-screen" onclick="removeRow(${id})" title="Remove">✕</button>`;
     document.getElementById('screenRows').appendChild(div);
@@ -632,9 +653,13 @@
     const phone          = form.querySelector('input[type="tel"]').value || 'Not provided';
     const address        = document.getElementById('pickupAddress').value;
     const notes          = form.querySelector('textarea').value || 'None';
-    const timeWindow     = document.getElementById('timeWindow').value;
+    const timeWindow     = document.getElementById('timeWindow')?.value || '';
     const frameCondition = document.getElementById('frameCondition').value;
-    const pickupDate     = document.getElementById('pickupDate').value;
+    const pickupDate     = document.getElementById('pickupDate')?.value || '';
+
+    // Collect multi-select pickup days and times
+    const pickupDays  = [...document.querySelectorAll('input[name="pickupDay"]:checked')].map(el => el.value).join(', ') || 'No preference specified';
+    const pickupTimes = [...document.querySelectorAll('input[name="pickupTime"]:checked')].map(el => el.value).join(', ') || 'No preference specified';
     const hasFrameRepair = frameCondition === 'One or more frames are bent/damaged';
 
     const lines       = buildBreakdownLines();
@@ -653,8 +678,8 @@ Name: ${fname} ${lname}
 Email: ${email}
 Phone: ${phone}
 Address: ${address}
-Pickup Date: ${pickupDate}
-Time Window: ${timeWindow}
+Preferred Pickup Days: ${pickupDays}
+Preferred Times: ${pickupTimes}
 Frame Condition: ${frameCondition}
 
 --- Screens ---
@@ -697,28 +722,6 @@ Notes: ${notes}
     document.querySelectorAll('.faq-a').forEach(a => a.classList.remove('open'));
     document.querySelectorAll('.faq-q').forEach(q => q.classList.remove('open'));
     if (!open) { ans.classList.add('open'); btn.classList.add('open'); }
-  }
-
-  // ─── Pickup date min + time windows ───────────────────────────────────────
-  const p = document.getElementById('pickupDate');
-  if (p) { const t = new Date(); t.setDate(t.getDate() + 1); p.min = t.toISOString().split('T')[0]; }
-
-  function updateTimeWindows() {
-    const dateVal = document.getElementById('pickupDate').value;
-    const sel     = document.getElementById('timeWindow');
-    sel.innerHTML = '<option value="">Select a window</option>';
-    if (!dateVal) return;
-    const [y, m, d] = dateVal.split('-').map(Number);
-    const day        = new Date(y, m - 1, d).getDay(); // 0=Sun, 6=Sat
-    const isWeekend  = (day === 0 || day === 6);
-    const windows    = isWeekend
-      ? ['8am – 10am', '10am – 12pm', '12pm – 2pm', '2pm – 4pm', '4pm – 6pm']
-      : ['4pm – 6pm', '6pm – 8pm'];
-    windows.forEach(w => {
-      const opt = document.createElement('option');
-      opt.value = w; opt.textContent = w;
-      sel.appendChild(opt);
-    });
   }
 
   // ─── Mobile nav ───────────────────────────────────────────────────────────
