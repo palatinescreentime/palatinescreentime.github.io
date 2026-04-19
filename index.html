@@ -375,16 +375,21 @@
           <p>Thank you! We'll review your order and send a detailed invoice to your email within a few hours. Keep an eye on your inbox!</p>
         </div>
         <form id="quoteForm" onsubmit="handleSubmit(event)">
+          <input type="hidden" name="access_key" value="bb828006-dfcb-4aa0-8419-47814f7df0ea" />
+          <input type="hidden" name="subject" value="New Quote Request Palatine ScreenTime" />
+          <input type="hidden" name="from_name" value="Screen Time Website" />
+          <input type="hidden" name="screen_count" id="screenCountField" value="0" />
+          <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" aria-hidden="true" />
           <h3 style="font-size:1.1rem;font-weight:800;margin-bottom:20px;">Your Contact Info</h3>
           <div class="form-row">
-            <div class="form-group"><label>First Name <span class="req">*</span></label><input type="text" placeholder="Jane" required /></div>
-            <div class="form-group"><label>Last Name <span class="req">*</span></label><input type="text" placeholder="Smith" required /></div>
+            <div class="form-group"><label>First Name <span class="req">*</span></label><input type="text" name="first_name" placeholder="Jane" required /></div>
+            <div class="form-group"><label>Last Name <span class="req">*</span></label><input type="text" name="last_name" placeholder="Smith" required /></div>
           </div>
           <div class="form-row">
-            <div class="form-group"><label>Email <span class="req">*</span></label><input type="email" placeholder="jane@email.com" required /></div>
-            <div class="form-group"><label>Phone (optional)</label><input type="tel" placeholder="(555) 000-0000" /></div>
+            <div class="form-group"><label>Email <span class="req">*</span></label><input type="email" name="email" placeholder="jane@email.com" required /></div>
+            <div class="form-group"><label>Phone (optional)</label><input type="tel" name="phone" placeholder="(555) 000-0000" /></div>
           </div>
-          <div class="form-group"><label>Pickup Address <span class="req">*</span></label><input type="text" id="pickupAddress" placeholder="123 Main St, Palatine, IL 60067" required onblur="checkAddress(this)" /></div>
+          <div class="form-group"><label>Pickup Address <span class="req">*</span></label><input type="text" name="address" id="pickupAddress" placeholder="123 Main St, Palatine, IL 60067" required onblur="checkAddress(this)" /></div>
 
           <hr class="form-divider" />
           <h3 style="font-size:1.1rem;font-weight:800;margin-bottom:6px;">Your Screens</h3>
@@ -399,27 +404,27 @@
             <div class="form-group">
               <label>Preferred Pickup Days <span class="req">*</span></label>
               <div class="multi-check-group" id="pickupDays">
-                <label class="check-option"><input type="checkbox" name="pickupDay" value="Monday"> Monday</label>
-                <label class="check-option"><input type="checkbox" name="pickupDay" value="Tuesday"> Tuesday</label>
-                <label class="check-option"><input type="checkbox" name="pickupDay" value="Wednesday"> Wednesday</label>
-                <label class="check-option"><input type="checkbox" name="pickupDay" value="Thursday"> Thursday</label>
-                <label class="check-option"><input type="checkbox" name="pickupDay" value="Friday"> Friday</label>
-                <label class="check-option"><input type="checkbox" name="pickupDay" value="Saturday"> Saturday</label>
-                <label class="check-option"><input type="checkbox" name="pickupDay" value="Sunday"> Sunday</label>
+                <label class="check-option"><input type="checkbox" name="day_monday" value="Monday"> Monday</label>
+                <label class="check-option"><input type="checkbox" name="day_tuesday" value="Tuesday"> Tuesday</label>
+                <label class="check-option"><input type="checkbox" name="day_wednesday" value="Wednesday"> Wednesday</label>
+                <label class="check-option"><input type="checkbox" name="day_thursday" value="Thursday"> Thursday</label>
+                <label class="check-option"><input type="checkbox" name="day_friday" value="Friday"> Friday</label>
+                <label class="check-option"><input type="checkbox" name="day_saturday" value="Saturday"> Saturday</label>
+                <label class="check-option"><input type="checkbox" name="day_sunday" value="Sunday"> Sunday</label>
               </div>
             </div>
             <div class="form-group">
               <label>Preferred Time of Day <span class="req">*</span></label>
               <div class="multi-check-group" id="pickupTimes">
-                <label class="check-option"><input type="checkbox" name="pickupTime" value="Morning (before noon)"> Morning <span style="color:var(--muted);font-size:.8rem;">(before noon)</span></label>
-                <label class="check-option"><input type="checkbox" name="pickupTime" value="Afternoon (12pm–5pm)"> Afternoon <span style="color:var(--muted);font-size:.8rem;">(12pm–5pm)</span></label>
-                <label class="check-option"><input type="checkbox" name="pickupTime" value="Evening (after 5pm)"> Evening <span style="color:var(--muted);font-size:.8rem;">(after 5pm)</span></label>
+                <label class="check-option"><input type="checkbox" name="time_morning" value="Morning (before noon)"> Morning <span style="color:var(--muted);font-size:.8rem;">(before noon)</span></label>
+                <label class="check-option"><input type="checkbox" name="time_afternoon" value="Afternoon (12pm–5pm)"> Afternoon <span style="color:var(--muted);font-size:.8rem;">(12pm–5pm)</span></label>
+                <label class="check-option"><input type="checkbox" name="time_evening" value="Evening (after 5pm)"> Evening <span style="color:var(--muted);font-size:.8rem;">(after 5pm)</span></label>
               </div>
             </div>
           </div>
           <div class="form-group">
             <label>Frame Condition</label>
-            <select id="frameCondition" onchange="checkFrameCondition()"><option>All frames look okay</option><option>One or more frames are bent/damaged</option><option>Not sure — please check on pickup</option></select>
+            <select name="frame_condition" id="frameCondition" onchange="checkFrameCondition()"><option>All frames look okay</option><option>One or more frames are bent/damaged</option><option>Not sure — please check on pickup</option></select>
             <p style="font-size:.8rem;color:var(--muted);margin-top:6px;">🔧 Have a bent or broken frame? We can help with minor repairs! Just make a note in Additional Notes below and we'll do our best to keep your existing frame.</p>
             <div id="frameRepairNotice" style="display:none;margin-top:10px;background:#fff8f0;border:1.5px solid #f4a261;border-radius:8px;padding:12px 14px;">
               <div style="display:flex;justify-content:space-between;align-items:center;font-size:.88rem;">
@@ -429,8 +434,7 @@
               <p style="font-size:.78rem;color:#92400e;margin-top:4px;">A $12.56/frame repair charge will apply — we'll confirm the frame is repairable at pickup and include it in your invoice.</p>
             </div>
           </div>
-          <div class="form-group"><label>Additional Notes</label><textarea placeholder="Gate codes, parking info, special instructions, frame damage details…"></textarea></div>
-          <input type="checkbox" name="botcheck" style="display:none;">
+          <div class="form-group"><label>Additional Notes</label><textarea name="notes" placeholder="Gate codes, parking info, special instructions, frame damage details…"></textarea></div>
           <button type="submit" class="btn btn-blue btn-block" style="font-size:1rem;padding:14px;">Submit Quote Request →</button>
           <p style="text-align:center;font-size:.78rem;color:var(--muted);margin-top:12px;">No payment required now. Invoice sent first for your review. Cash or check accepted.</p>
         </form>
@@ -551,7 +555,7 @@
   const PICKUP_FEE = 9.62;
   const MAX_DIM    = 120;
   const RATE       = 0.29;
-  let screenCount  = 0;
+  let screenIdCounter  = 0;
 
   // ─── Haversine distance (miles) ───────────────────────────────────────────
   function haversine(lat1, lng1, lat2, lng2) {
@@ -597,31 +601,46 @@
 
   // ─── Screen rows ──────────────────────────────────────────────────────────
   function addScreenRow() {
-    screenCount++;
-    const id  = screenCount;
+    screenIdCounter++;
+    const id  = screenIdCounter;
     const div = document.createElement('div');
     div.className = 'screen-row'; div.id = 'row-' + id;
     div.innerHTML = `
       <div>
         <label>Width (inches)</label>
-        <input type="number" min="4" max="${MAX_DIM}" placeholder="" oninput="checkDim(this)" class="sw" />
+        <input type="number" min="4" max="200" placeholder="" oninput="checkDim(this)" class="sw" />
       </div>
       <div>
         <label>Height (inches)</label>
-        <input type="number" min="4" max="${MAX_DIM}" placeholder="" oninput="checkDim(this)" class="sh" />
+        <input type="number" min="4" max="200" placeholder="" oninput="checkDim(this)" class="sh" />
       </div>
       <button type="button" class="remove-screen" onclick="removeRow(${id})" title="Remove">✕</button>`;
     document.getElementById('screenRows').appendChild(div);
-  }
-
-  function checkDim(input) {
-    const val = parseFloat(input.value);
-    if (val <= 0) input.value = '';
+    renumberScreenNames();
+    recalc();
   }
 
   function removeRow(id) {
     const el = document.getElementById('row-' + id);
-    if (el) el.remove();
+    if (el) { el.remove(); renumberScreenNames(); recalc(); }
+  }
+
+  function renumberScreenNames() {
+    document.querySelectorAll('.screen-row').forEach((row, i) => {
+      const n  = i + 1;
+      const sw = row.querySelector('.sw');
+      const sh = row.querySelector('.sh');
+      if (sw) sw.name = `screen_${n}_width`;
+      if (sh) sh.name = `screen_${n}_height`;
+    });
+    document.getElementById('screenCountField').value = document.querySelectorAll('.screen-row').length;
+  }
+
+  function recalc() { /* estimate display removed — pricing sent via email */ }
+
+  function checkDim(input) {
+    const val = parseFloat(input.value);
+    if (val <= 0) input.value = '';
   }
 
   function screenPrice(w, h) { return (w + h) * RATE; }
@@ -641,77 +660,29 @@
   // ─── Form submit ──────────────────────────────────────────────────────────
   async function handleSubmit(e) {
     e.preventDefault();
-    const form = document.getElementById('quoteForm');
-    const btn  = form.querySelector('[type="submit"]');
-    btn.textContent = 'Sending…'; btn.disabled = true;
-
-    const fname          = form.querySelector('input[placeholder="Jane"]').value;
-    const lname          = form.querySelector('input[placeholder="Smith"]').value;
-    const email          = form.querySelector('input[type="email"]').value;
-    const phone          = form.querySelector('input[type="tel"]').value || 'Not provided';
-    const address        = document.getElementById('pickupAddress').value;
-    const notes          = form.querySelector('textarea').value || 'None';
-    const timeWindow     = document.getElementById('timeWindow')?.value || '';
-    const frameCondition = document.getElementById('frameCondition').value;
-    const pickupDate     = document.getElementById('pickupDate')?.value || '';
-
-    // Collect multi-select pickup days and times
-    const pickupDays  = [...document.querySelectorAll('input[name="pickupDay"]:checked')].map(el => el.value).join(', ') || 'No preference specified';
-    const pickupTimes = [...document.querySelectorAll('input[name="pickupTime"]:checked')].map(el => el.value).join(', ') || 'No preference specified';
-    const hasFrameRepair = frameCondition === 'One or more frames are bent/damaged';
-
-    const lines       = buildBreakdownLines();
-    const screenTotal = lines.reduce((s, l) => s + l.price, 0);
-    const grandTotal  = screenTotal + PICKUP_FEE;
-    const half        = grandTotal / 2;
-
-    const screenSummary = lines.map((l, i) =>
-      `Screen ${i+1}: ${l.label.match(/\(.*\)/)?.[0] || ''} — $${l.price.toFixed(2)}`
-    ).join('\n') + (hasFrameRepair ? '\nFrame repair charge: TBD (confirmed at pickup)' : '');
-
-    const message = `
-New Quote Request — Screen Time
-
-Name: ${fname} ${lname}
-Email: ${email}
-Phone: ${phone}
-Address: ${address}
-Preferred Pickup Days: ${pickupDays}
-Preferred Times: ${pickupTimes}
-Frame Condition: ${frameCondition}
-
---- Screens ---
-${screenSummary}
-
---- Totals ---
-Screen subtotal: $${screenTotal.toFixed(2)}
-Pickup & delivery fee: $${PICKUP_FEE.toFixed(2)}
-Estimated total: $${grandTotal.toFixed(2)}${hasFrameRepair ? ' + frame repair TBD' : ''}
-Due at pickup: $${half.toFixed(2)}
-Due at delivery: $${half.toFixed(2)}
-
-Notes: ${notes}
-    `.trim();
-
+    const btn  = e.target.querySelector('[type=submit]');
+    const orig = btn.textContent;
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
     try {
-      await fetch('https://api.web3forms.com/submit', {
+      const res  = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          access_key: WEB3FORMS_KEY,
-          subject:    `New Quote Request Palatine ScreenTime`,
-          from_name:  'Screen Time Website',
-          replyto:    email,
-          message,
-        }),
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(e.target)
       });
+      const data = await res.json();
+      if (data.success) {
+        document.getElementById('quoteForm').style.display = 'none';
+        document.getElementById('formSuccess').style.display = 'block';
+        document.getElementById('quote').scrollIntoView({ behavior: 'smooth' });
+      } else {
+        alert('Something went wrong. Please email hello@palatinescreentime.com directly.');
+        btn.textContent = orig; btn.disabled = false;
+      }
     } catch (err) {
-      console.error('Web3Forms error:', err);
+      alert('Network error. Please email hello@palatinescreentime.com directly.');
+      btn.textContent = orig; btn.disabled = false;
     }
-
-    form.style.display = 'none';
-    document.getElementById('formSuccess').style.display = 'block';
-    document.getElementById('quote').scrollIntoView({ behavior: 'smooth' });
   }
 
   // ─── FAQ accordion ────────────────────────────────────────────────────────
